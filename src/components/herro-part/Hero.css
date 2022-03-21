@@ -12,6 +12,14 @@
     color: white;
 } 
 
+@media (max-width :991px){
+    .hero-container{
+        background-size: cover;
+        min-height: 1000px;
+    }
+}
+
+
 h3{
     margin-top: 47px;
     padding-top: 20px;
@@ -56,6 +64,7 @@ p{
     color: white;
     border-radius: 10px;
     cursor: pointer;
+    border: 2px solid transparent;
 }
 
 
@@ -68,6 +77,7 @@ p{
     font-size: 19px;
     color: white;
     border-radius: 10px;
+    border: 2px solid transparent;
 }
 
 .st{

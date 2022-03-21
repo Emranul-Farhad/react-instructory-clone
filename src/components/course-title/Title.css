@@ -1,0 +1,34 @@
+.main{
+    margin-top: 7rem;
+    /* margin-bottom: 3rem; */
+}
+.ct{
+    font-size: 2rem;
+    line-height: 65px;
+    letter-spacing: 6px;
+    font-size: 24px;
+    color: #087497;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.sp{
+    margin: 15px;
+    background :#ddd;
+    height: 2px;
+    display: block;
+    position: relative;
+}
+
+.sp::before{
+    content: "";
+    position: absolute;
+    background: #ff4669;
+    height: 0.1rem;
+    width: 10rem;
+    margin: auto;
+    left: 0;
+    right: 0;
+
+}
