@@ -1,0 +1,65 @@
+[
+    {
+        "name" : "Dipu",
+        "img" : "https://instructory-aws-storage.s3.us-west-1.amazonaws.com/course_thumbnails/625e6173bf7ca.jpg",
+        "courseName" : "KDP Interior Design",
+        "star" : 5,
+        "price": "990"
+    },
+    {
+        "name" : " Saydur Rahman",
+        "img" : "https://instructory-aws-storage.s3.us-west-1.amazonaws.com/course_thumbnails/625eba88dea54.jpg",
+        "courseName" : "Bynari Trading",
+        "star" : 3.5,
+        "price" : "450"
+    },
+    {
+        "name" : "Abdullah Masud",
+        "img" : "https://instructory-aws-storage.s3.us-west-1.amazonaws.com/course_thumbnails/625e64aa1ed42.jpg",
+        "courseName" : " Wordpress pro",
+        "star" : 5,
+        "price" : "990"
+    },
+    {
+        "name" : "Sathi",
+        "img" : "https://instructory-aws-storage.s3.us-west-1.amazonaws.com/users/Sazzadur.sr/courses/577/thumb.jpg",
+        "courseName" : "Animation",
+        "star" : 4.5,
+        "price" : "1200"
+    },
+    {
+        "name" : "Ahinur",
+        "img" : "https://instructory-aws-storage.s3.us-west-1.amazonaws.com/users/khan_sakib/courses/438/thumb.jpg",
+        "courseName" : "Video Editing",
+        "star" : 5,
+        "price" : "600"
+    },
+    {
+        "name" : "MD: Forhad",
+        "img" : "https://instructory-aws-storage.s3.us-west-1.amazonaws.com/users/saruarnazmul/courses/500/thumb.jpg",
+        "courseName" : "WEB Design",
+        "star" : 5,
+        "price" : " "
+    },
+    {
+        "name" : "Hosana",
+        "img" : "https://instructory-aws-storage.s3.us-west-1.amazonaws.com/course_thumbnails/60ed3d92e4bd6.png",
+        "courseName" : "SEO",
+        "star" : 4.5,
+        "price" : "690"
+    },
+    {
+        "name" : "Khalid/Saiful",
+        "img" : "https://instructory-aws-storage.s3.us-west-1.amazonaws.com/course_thumbnails/60ed8a7cbb58e.png",
+        "courseName" : "Freepik zero to Hero",
+        "star" : 3.5,
+        "price" : "300"
+    },
+    {
+        "name" : "MD Asad",
+        "img" : "https://instructory-aws-storage.s3.us-west-1.amazonaws.com/course_thumbnails/60ec007f2d667.png",
+        "courseName" : "Animate CC",
+        "star" : 5,
+        "price" : "1500"
+    }
+]
