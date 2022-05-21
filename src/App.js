@@ -8,7 +8,7 @@ import Title from './components/course-title/Title';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App ">
     <Hero></Hero>
     <Search></Search>
    <Title></Title>
