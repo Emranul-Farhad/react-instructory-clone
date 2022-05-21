@@ -3,6 +3,7 @@ import './Title.css'
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import TitleCard from './TitleCard';
+import Teacherfeature from '../Teacher feature/Teacherfeature';
 
 
 const Title = () => {
@@ -32,6 +33,9 @@ const Title = () => {
                 
             }
             </div>
+         {/* card courses end here */}
+
+         {/* teacher feature start here */}
          
 
 

@@ -3,18 +3,19 @@ import './App.css';
 import Hero from './components/herro-part/Hero';
 import Search from './components/search/Search';
 import Title from './components/course-title/Title';
+import Teacherfeature from './components/Teacher feature/Teacherfeature';
+import OurPartner from './components/our Partner/OurPartner';
 
 
 
 function App() {
   return (
-    <div className="App ">
-    <Hero></Hero>
-    <Search></Search>
-   <Title></Title>
-   <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div className="App">
+      <Hero></Hero>
+      <Search></Search>
+      <Title></Title>
+      <Teacherfeature></Teacherfeature>
+      <OurPartner></OurPartner>
     </div>
   );
 }
