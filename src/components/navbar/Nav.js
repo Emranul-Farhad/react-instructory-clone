@@ -4,14 +4,15 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import auth from '../../Firekey/Firekey';
 import './nav.css'
 import { useAuthState } from 'react-firebase-hooks/auth';
-
+import { BsFillCartCheckFill } from 'react-icons/bs'
+import { BiCloudUpload } from 'react-icons/bi'
 
 
 
 const Nav = () => {
- 
+
   const navigate = useNavigate()
- // AUTHSATETE FIR logout
+  // AUTHSATETE FIR logout
   const [user] = useAuthState(auth);
   //  logout
   const logout = () => {
@@ -35,20 +36,23 @@ const Nav = () => {
                 <a class="nav-link active text-white ap" href="/">Affiliate Partener</a>
               </li>
               <div className='d-flex mx-auto ms-auto'>
-                <li class="nav-item me-2">
-                  <a class="nav-link active text-white" href="/">Sign in</a>
-                </li>
+
+
+                <li className='mt-1 mr-2 text-3xl'> <NavLink to='/upload'> <BiCloudUpload></BiCloudUpload>  </NavLink> </li>
+
+                <li className='mt-2 mr-3 text-2xl'>  <NavLink to='/'> <BsFillCartCheckFill></BsFillCartCheckFill> </NavLink> </li>
+
                 <li class="nav-item ">
                   {user ? <button onClick={logout} type="button" class="btn btn-danger ">Log Out</button> :
                     <button onClick={() => navigate('/login')()} type="button" class="btn btn-danger ">Get Started</button>
-                  }    
+                  }
                 </li>
-                <NavLink to='/dashboard'> 
-                <li class="nav-item mx-2">
-                <a class="nav-link active text-white ap" href="/">Dashboard </a>
-              </li>
+                <NavLink to='/dashboard'>
+                  <li class="nav-item mx-2">
+                    <a class="nav-link active text-white ap" href="/">Dashboard </a>
+                  </li>
                 </NavLink>
-               
+
               </div>
 
             </ul>
