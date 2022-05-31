@@ -9,7 +9,10 @@ const Howwork = () => {
         <div>
             <div className='flex flex-col lg:flex-row mx-10'>
                 <div className='basis-2/4'>
-                    <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt voluptatem odio, eum eius vero, quidem officiis, corrupti repudiandae rerum ad tempora. Necessitatibus saepe recusandae ducimus blanditiis voluptatem amet, ratione eum distinctio? Maiores, at, illo facilis doloribus accusantium dolore magni facere ipsa eius non fugiat cupiditate quaerat iure! Quasi officia incidunt voluptatibus error fugit iste totam deleniti laudantium praesentium sint, distinctio debitis natus ullam rerum maiores cupiditate ex, porro quidem eius.</h6>
+                    <h6 className='text-left mb-3 font-bold text-2xl'>Join <span className='text-[#1AA3D1] font-bold font-mono'>Instructory</span> Comunity</h6>
+                    <h6 className='text-left leading-10'>Instructory is for everyone and different from everyone. You can teach or you can learn, in both way you can empower youself with lot of skills and support. <br />
+
+<span className='text-[#1AA3D1] font-bold'>Instructory Community </span> is the largest and one of the best eLearning group of Instructory, where you can get so many tips, tricks and news about newly arrival courses.</h6>
                 </div>
 
                <div className='basis-2/4 '>
