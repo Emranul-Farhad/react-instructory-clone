@@ -23,7 +23,6 @@
     border: none !important;
 }
 .supportsub:hover{
-    border: none !important;
     background-color: #0076a3;
     transition: ease-in .5s;
    

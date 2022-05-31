@@ -24,7 +24,7 @@ const Support = () => {
                                 <input type="text" placeholder="Type here" className="supportinput h-[50px]  border-solid border-2 border-[gray] 
                              input-bordered input-primary w-full max-w-xs" />
 
-                                <input type="submit" className=' text-white font-bold first-letter:supportsub mt-5 w-[100%] text-center h-[50px] bg-[#0076a3] mb-2' />
+                                <input type="submit" className=' text-white font-bold supportsub mt-5 w-[100%] text-center h-[50px] bg-[#FF4669] mb-2' />
                             </div>
                         </div>
                     </div>
