@@ -31,7 +31,7 @@ const OurPartner = () => {
                           <img className='shadow-2xl rounded-full' src="https://www.radiustheme.com/demo/wordpress/themes/edhub/wp-content/uploads/2021/10/brand2.png" alt="" />
                       </div>
                       <div className='col-lg-3 s'>
-                          <img className='shadow-2xl rounded-full'  src="https://www.radiustheme.com/demo/wordpress/themes/edhub/wp-content/uploads/2021/10/brand8.png" alt="" />
+                          <img className='shadow-2xl rounded-full w-[120px]'  src="https://www.radiustheme.com/demo/wordpress/themes/edhub/wp-content/uploads/2021/10/brand8.png" alt="" />
                       </div>
                       <div className='col-lg-3'>
                           <img className='shadow-2xl rounded-full'  src="https://www.radiustheme.com/demo/wordpress/themes/edhub/wp-content/uploads/2021/10/brand4.png" alt="" />
@@ -40,16 +40,16 @@ const OurPartner = () => {
                           <img className='shadow-2xl rounded-full'  src="https://www.radiustheme.com/demo/wordpress/themes/edhub/wp-content/uploads/2021/10/brand7.png" alt="" />
                       </div>
                       <div className='col-lg-3'>
-                          <img className='shadow-2xl rounded-full'  src="https://www.radiustheme.com/demo/wordpress/themes/edhub/wp-content/uploads/2021/10/brand5.png" alt="" />
+                          <img className='shadow-2xl rounded-full w-[120px]'  src="https://www.radiustheme.com/demo/wordpress/themes/edhub/wp-content/uploads/2021/10/brand5.png" alt="" />
                       </div>
                       <div className='col-lg-3 mt-4'>
-                          <img className='shadow-2xl rounded-full'  src="https://www.radiustheme.com/demo/wordpress/themes/edhub/wp-content/uploads/2021/10/brand3.png" alt="" />
+                          <img className='shadow-2xl rounded-full w-[120px]'  src="https://www.radiustheme.com/demo/wordpress/themes/edhub/wp-content/uploads/2021/10/brand3.png" alt="" />
                       </div>
                       <div className='col-lg-3 mt-5'>
                           <img  className='shadow-2xl rounded-full'  src="https://www.radiustheme.com/demo/wordpress/themes/edhub/wp-content/uploads/2021/10/brand6.png" alt="" />
                       </div>
                       <div className='col-lg-3 '>
-                          <img className='shadow-2xl rounded-full'  src="https://www.radiustheme.com/demo/wordpress/themes/edhub/wp-content/uploads/2021/10/brand1.png" alt="" />
+                          <img className='shadow-2xl rounded-full w-[120px]'  src="https://www.radiustheme.com/demo/wordpress/themes/edhub/wp-content/uploads/2021/10/brand1.png" alt="" />
                       </div>
                   </div>
                 </div>

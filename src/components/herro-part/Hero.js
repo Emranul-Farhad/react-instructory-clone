@@ -64,7 +64,7 @@ const Hero = () => {
        <Support></Support>
      </div>
      {/*  */}
-     <div className='mt-20'>
+     <div className='mt-[120px]'>
        <Footer></Footer>
      </div>
     </>

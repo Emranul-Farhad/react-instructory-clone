@@ -36,9 +36,9 @@ const Title = () => {
             {/* card courses end here */}
 
             {/* teacher feature start here */}
-
-
-
+            <div className='text-left mt-20 mx-20'>
+            <button className='st '>See more.. </button>
+            </div>
         </div>
 
     );
