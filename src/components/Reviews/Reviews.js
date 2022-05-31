@@ -1,6 +1,12 @@
 import React from 'react';
 import Reviewscard from './Reviewscard';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay, Zoom } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 
 const Reviews = () => {
@@ -42,10 +48,54 @@ const Reviews = () => {
 
     return (
         <div>
-            <div className='grid grid-cols-1'>
-                {
+            <div className='containers'>
+                <div className='main'>
+                    <h2 className='ct'> INSTRUCTORY'S STUDENTS SAYS </h2>
+                    <div className='sp'></div>
+                </div>
+            </div>
+            <div className='mx-4'>
+                {/* {
                     testimonials.map(testimonial => <Reviewscard cardinfo={testimonial} ></Reviewscard> )
-                }
+                } */}
+                   <Swiper
+          modules={[Autoplay, Pagination, Zoom, A11y]}
+          spaceBetween={0}
+          slidesPerView={1}
+          centeredslide="true"
+          key={testimonials.length }
+          autoplay={true}
+          breakpoints={{
+            520: {
+              slidesPerView: 1,
+              spaceBetween: 0,
+            },
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 0,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 0,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+          }}
+        >
+
+             {
+                 
+            testimonials?.slice(0).reverse().map((review, index) => (
+                <SwiperSlide key={index} >
+                  <Reviewscard cardinfo={review} ></Reviewscard>
+                </SwiperSlide>
+              ))
+             }
+
+
+        </Swiper>
             </div>
         </div>
     );

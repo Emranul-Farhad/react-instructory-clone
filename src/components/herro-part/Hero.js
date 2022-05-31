@@ -6,6 +6,7 @@ import Title from '../course-title/Title'
 import Teacherfeature from '../Teacher feature/Teacherfeature';
 import OurPartner from '../our Partner/OurPartner';
 import Reviews from '../Reviews/Reviews';
+import Joning from '../Join as teacher students/Joning';
 
 
 const Hero = () => {
@@ -46,6 +47,10 @@ const Hero = () => {
      {/*  */}
      <div>
        <Reviews></Reviews>
+     </div>
+     {/*  */}
+     <div>
+       <Joning></Joning>
      </div>
     </>
   );
