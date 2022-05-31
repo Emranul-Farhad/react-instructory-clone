@@ -8,6 +8,7 @@ import OurPartner from '../our Partner/OurPartner';
 import Reviews from '../Reviews/Reviews';
 import Joning from '../Join as teacher students/Joning';
 import Howwork from '../How it works/Howwork';
+import Support from '../Support/Support';
 
 
 const Hero = () => {
@@ -56,6 +57,10 @@ const Hero = () => {
      {/*  */}
      <div className='mt-[130px]'>
        <Howwork></Howwork>
+     </div>
+     {/* */}
+     <div className='mt-[140px]'>
+       <Support></Support>
      </div>
     </>
   );

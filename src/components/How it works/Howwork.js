@@ -7,8 +7,14 @@ const Howwork = () => {
 
     return (
         <div>
-            <div className='flex flex-col lg:flex-row mx-10 container'>
-                <div className='basis-2/4'>
+             <div className='containers mb-5'>
+                <div className='main'>
+                    <h2 className='ct'>HOW IT WORKS </h2>
+                    <div className='sp'></div>
+                </div>
+            </div>
+            <div className='flex flex-col lg:flex-row mx-10 '>
+                <div className='basis-2/4 mb-5 lg:mb-0'>
                     <h6 className='text-left mb-3 font-bold text-2xl'>Join <span className='text-[#1AA3D1] font-bold font-mono'>Instructory</span> Comunity</h6>
                     <h6 className='text-left leading-10'>Instructory is for everyone and different from everyone. You can teach or you can learn, in both way you can empower youself with lot of skills and support. <br />
 
@@ -27,7 +33,7 @@ const Howwork = () => {
                 </div>
 
             </div>
-            <h1 className='mt-[140px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, quam?</h1>
+            
         </div>
     );
 };
