@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Footer.css'
+import {BsTelegram,BsYoutube, BsInstagram , BsFacebook } from 'react-icons/bs'
 
 
 const Footer = () => {
@@ -15,30 +16,11 @@ const Footer = () => {
        <img className='fluid'  src="https://instructory.net/assets/images/logo-new-white.png" alt="" /> 
         </picture>
     </div>
-    <div id="footer-top-menu-container" role="menubar">
-        <ul id="footer-top-menu" role="menu">
-            <li className="footer-top-menu-item" role="menuitem">
-                <NavLink to="/" className="footer-top-menu-link">IT Services</NavLink>
-            </li>
-            <li className="footer-top-menu-item footer-top-menu-item-active" role="menuitem">
-                <NavLink to="/" className="footer-top-menu-link">Web development</NavLink>
-            </li>
-            <li className="footer-top-menu-item" role="menuitem">
-                <NavLink to="/" className="footer-top-menu-link">SEO</NavLink>
-            </li>
-            <li className="footer-top-menu-item" role="menuitem">
-                <NavLink to="/" className="footer-top-menu-link">UI/UX</NavLink>
-            </li>
-        </ul>
-    </div>
-    <div id="footer-buttons-container">
-        <NavLink to="/" className="footer-button" role="button">View our Projects</NavLink>
-    </div>
 </section>
 
 <section className="horizontal-footer-section" id="footer-middle-section">
     <div id="footer-about" className="footer-columns footer-columns-large">
-        <h6 className='text-left leading-10 mt-[-20px]'>Instructory is all about connecting & discovering talents, inspiring people and impact lives with the best teaching and earning opportunities. “Instructory” is an online teaching marketplace, where instructors can create and upload their knowledge & make money online. It is also an E-Learning Platform to learn anything from anywhere from the best & Top rated Professionals and Freelancers! It has created earning opportunities for millions of instructors!.</h6>
+        <h6 className='text-left leading-10 mt-[-30px]'>Instructory is all about connecting & discovering talents, inspiring people and impact lives with the best teaching and earning opportunities. “Instructory” is an online teaching marketplace, where instructors can create and upload their knowledge & make money online. It is also an E-Learning Platform to learn anything from anywhere from the best & Top rated Professionals and Freelancers! It has created earning opportunities for millions of instructors!.</h6>
     </div>
     <div className="footer-columns text-left ms-5">
         <h6 className='mb-4 font-extrabold text-2xl'>Usefull link </h6>
@@ -100,13 +82,18 @@ const Footer = () => {
 
 <section className="horizontal-footer-section" id="footer-bottom-section">
     <div id="footer-copyright-info">
-        &copy; Reimu Inc. 2022. All rights reserved.
+        &copy; {new Date().getFullYear()} emranul farhad
     </div>
     <div id="footer-social-buttons">
-        <img src="https://img.icons8.com/ios-filled/25/999999/facebook--v1.png"/>
+        {/* <img src="https://img.icons8.com/ios-filled/25/999999/facebook--v1.png"/>
         <img src="https://img.icons8.com/ios-filled/25/999999/telegram-app.png"/>
         <img src="https://img.icons8.com/ios-filled/25/999999/pinterest--v1.png"/>
-        <img src="https://img.icons8.com/ios-filled/25/999999/instagram--v1.png"/>
+        <img src="https://img.icons8.com/ios-filled/25/999999/instagram--v1.png"/> */}
+        <h5 className='mx-2 text-2xl' ><BsFacebook></BsFacebook></h5>
+        <h5 className='mx-2 text-2xl' ><BsTelegram></BsTelegram></h5>
+        <h5 className='mx-2 text-2xl' ><BsInstagram></BsInstagram></h5>
+        <h5 className='mx-2 text-2xl' ><BsYoutube></BsYoutube></h5>
+
     </div>
 </section>
 

@@ -45,7 +45,7 @@ const Nav = () => {
                 <li title='course Upload' className='mt-1 mr-2 text-3xl px-3'> <NavLink to='/upload'> <BiCloudUpload></BiCloudUpload>  </NavLink> </li>
 
 
-                <li title='Blogs' className='mt-2 mr-3 px-3 text-2xl'>  <NavLink to='/'>
+                <li title='Blogs' className=' mt-2 mr-3 px-3 text-2xl'>  <NavLink to='/'>
                   <BsFillJournalBookmarkFill></BsFillJournalBookmarkFill> </NavLink> </li>
 
                 <li title='dashboard' className='mt-2 mr-3 text-2xl'>  <NavLink to='/dashboard'> <RiDashboardFill></RiDashboardFill> </NavLink> </li>

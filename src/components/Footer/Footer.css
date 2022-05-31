@@ -14,7 +14,11 @@ body {
 footer#site-footer {
     margin: 0 auto;
     /* width: 960px; */
-    background: #1e3138;
+    /* background: #1e3138; */
+    background-image: url("https://instructory.net/assets/images/footer_bg.jpg");
+    background-color: #007ba6;
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 1rem;
     color: #a8a8a8;
 }
@@ -49,7 +53,7 @@ footer#site-footer #footer-logo {
 }
 
 footer#site-footer #footer-logo img {
-    height: 2.28rem;
+    height: 4.28rem;
 }
 
 footer#site-footer ul#footer-top-menu {
@@ -175,8 +179,9 @@ footer#site-footer section.horizontal-footer-section#footer-bottom-section {
 }
 
 footer#site-footer #footer-social-buttons {
-    justify-self: flex-end;
+    display: flex;
     margin-left: auto;
+    
 }
 
 footer#site-footer #footer-social-buttons img {
