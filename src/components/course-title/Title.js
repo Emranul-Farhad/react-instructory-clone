@@ -7,13 +7,13 @@ import Teacherfeature from '../Teacher feature/Teacherfeature';
 
 
 const Title = () => {
-    const [Coursecards , setCoursecard]  = useState([])
+    const [Coursecards, setCoursecard] = useState([])
 
-   useEffect(()=> {
-       fetch("text.json")
-       .then(res => res.json())
-       .then(data => setCoursecard(data))
-   },[])
+    useEffect(() => {
+        fetch("https://shielded-chamber-79155.herokuapp.com/courses")
+            .then(res => res.json())
+            .then(data => setCoursecard(data))
+    }, [])
 
 
     return (
@@ -25,22 +25,22 @@ const Title = () => {
                 </div>
             </div>
 
-            
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
-            mx-20 '>  
-            {
-                Coursecards.map(coursecarda => <TitleCard coursecard={coursecarda} ></TitleCard>  )
-                
-            }
-            </div>
-         {/* card courses end here */}
 
-         {/* teacher feature start here */}
-         
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
+            mx-20 '>
+                {
+                    Coursecards.map(coursecarda => <TitleCard coursecard={coursecarda} ></TitleCard>)
+
+                }
+            </div>
+            {/* card courses end here */}
+
+            {/* teacher feature start here */}
+
 
 
         </div>
-       
+
     );
 };
 
