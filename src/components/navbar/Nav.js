@@ -57,7 +57,7 @@ const Nav = () => {
 
                 <li class="nav-item dropdown">
 
-                  <a class="" href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a  href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img className='w-[50px] h-[50px] rounded-[50%]' src="https://instructory-aws-storage.s3.us-west-1.amazonaws.com/users/2am/profile_105225611.jpg" alt="" />
                   </a>
 
