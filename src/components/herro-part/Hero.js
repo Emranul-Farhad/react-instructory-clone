@@ -7,6 +7,7 @@ import Teacherfeature from '../Teacher feature/Teacherfeature';
 import OurPartner from '../our Partner/OurPartner';
 import Reviews from '../Reviews/Reviews';
 import Joning from '../Join as teacher students/Joning';
+import Howwork from '../How it works/Howwork';
 
 
 const Hero = () => {
@@ -51,6 +52,10 @@ const Hero = () => {
      {/*  */}
      <div>
        <Joning></Joning>
+     </div>
+     {/*  */}
+     <div className='mt-[130px]'>
+       <Howwork></Howwork>
      </div>
     </>
   );
