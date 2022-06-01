@@ -11,6 +11,9 @@ import Signin from './Pages/Sig nin/Signin';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Users from './Pages/Dashboard/Users';
 import Myorders from './Pages/Dashboard/Myorders';
+import Admins from './Pages/Dashboard/Admins/Admins';
+
+
 
 
 
@@ -24,6 +27,7 @@ function App() {
        <Route path='/dashboard' element={<Dashboard></Dashboard>} >
          <Route index element={<Myorders></Myorders> } ></Route>
          <Route path='users' element={<Users></Users>} ></Route>
+         <Route path='admins' element={<Admins></Admins> } ></Route>
        </Route>
      </Routes>
     </div>

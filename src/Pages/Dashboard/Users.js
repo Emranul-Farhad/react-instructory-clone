@@ -14,12 +14,15 @@ const Users = () => {
     }, [usersd])
 
     return (
-        <div>
+       <div>
+            <div>
             <h2 className='text-left'> {usersd.length}  </h2>
             {
                 usersd.map(userd => <Userd userd={userd}></Userd>)
             }
         </div>
+        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, officia!</h5>
+       </div>
     );
 };
 
