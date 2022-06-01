@@ -1,6 +1,6 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate , useLocation} from 'react-router-dom';
 import auth from '../../Firekey/Firekey';
 import './nav.css'
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -8,7 +8,7 @@ import { BsFillCartCheckFill } from 'react-icons/bs'
 import { BiCloudUpload } from 'react-icons/bi'
 import { BsFillJournalBookmarkFill, BsCollectionPlayFill } from 'react-icons/bs'
 import {RiDashboardFill} from 'react-icons/ri'
-
+import nav from '../../images/footer_bg.jpg'
 
 
 const Nav = () => {
@@ -21,11 +21,16 @@ const Nav = () => {
     signOut(auth);
   };
 
+  //  cpath name handel
+  const { pathname } = useLocation()
+
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light ">
+      <nav class="navbar navbar-expand-lg navbar-light" style={  
+        pathname.includes('/login') ?  {background: `url(${nav})`, padding: "5px ,15px 5px" } : {clasName : ""} 
+      }>
         <div class="container-fluid mt-3">
-          <a className="navbar-brand logo" href=""> <img className='fluid' width={200} src="https://instructory.net/assets/images/logo-new-white.png" alt="" /> </a>
+          <a className="navbar-brand logo" href="/"> <img className='fluid' width={200} src="https://instructory.net/assets/images/logo-new-white.png" alt="" /> </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -64,9 +69,11 @@ const Nav = () => {
                   <ul className="dropdown-menu bg-[#08637D]" aria-labelledby="navbarDropdownMenuLink">
                     <li><a class="dropdown-item font-bold " href="/">Action</a></li>
                     <li><a class="dropdown-item font-bold " href="/">Another action</a></li>
+
                     <li class="nav-item ms-2">
                       {user ? <button onClick={logout} type="button" class="btn btn-danger ">Log Out</button> :
-                        <button onClick={() => navigate('/login')()} type="button" class="btn btn-danger ">Get Started</button>
+                        <NavLink 
+                        to='/login' type="button" className="btn btn-danger ">Get Started</NavLink>
                       }
                     </li>
                   </ul>

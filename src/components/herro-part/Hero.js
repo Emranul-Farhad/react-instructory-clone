@@ -19,7 +19,7 @@ const Hero = () => {
     <>
       <div className='hero-container'>
         <div className='container'>
-          <Nav />
+          <Nav/>
 
           <h3 className='text-center'>ONLINE TEACHING MARKETPLACE & E-LEARNING PLATFORM</h3>
           <h1 className='text-center'>TEACH ANYTHING, LEARN ANYTIME</h1>

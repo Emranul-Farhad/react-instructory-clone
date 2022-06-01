@@ -5,3 +5,18 @@
 .ap:hover{
     color: #0898D7!important;
 }
+
+.navmain{
+    background-image: url("https://instructory.net/assets/images/footer_bg.jpg");
+}
+
+
+/* .hero-container{
+    background: url("https://instructory.net/assets/images/bg-1.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height:750px;
+    color: white;
+    background-color: #00a99d;
+}  */
