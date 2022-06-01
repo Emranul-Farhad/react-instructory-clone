@@ -27,7 +27,8 @@ const Nav = () => {
   return (
     <div>
       <nav class="navbar navbar-expand-lg navbar-light" style={  
-        pathname.includes('/login') ?  {background: `url(${nav})`, padding: "5px ,15px 5px" } : {clasName : ""} 
+        pathname.includes('/login') ?  {background: `url(${nav})`, padding: "5px ,15px 5px" } : {clasName : ""} &&
+        pathname.includes('/signin') ?  {background: `url(${nav})`, padding: "5px ,15px 5px" } : {clasName : ""}
       }>
         <div class="container-fluid mt-3">
           <a className="navbar-brand logo" href="/"> <img className='fluid' width={200} src="https://instructory.net/assets/images/logo-new-white.png" alt="" /> </a>
@@ -45,19 +46,19 @@ const Nav = () => {
               <div className='d-flex mx-auto ms-auto shadow-2xl rounded-lg px-2 p-1 bg-[#154766]'>
 
 
-                <li title=' MY courses' className='mt-2 mr-2 text-2xl px-3'> <NavLink to='/upload'> <BsCollectionPlayFill></BsCollectionPlayFill>  </NavLink> </li>
+                <li title=' MY courses' className='mt-2 mr-2 text-2xl px-2 text-white'> <NavLink to='/upload'> <BsCollectionPlayFill></BsCollectionPlayFill>  </NavLink> </li>
 
-                <li title='course Upload' className='mt-1 mr-2 text-3xl px-3'> <NavLink to='/upload'> <BiCloudUpload></BiCloudUpload>  </NavLink> </li>
+                <li title='course Upload' className='mt-1 mr-2 text-3xl px-2 text-white'> <NavLink to='/upload'> <BiCloudUpload></BiCloudUpload>  </NavLink> </li>
 
 
-                <li title='Blogs' className=' mt-2 mr-3 px-3 text-2xl'>  <NavLink to='/'>
+                <li title='Blogs' className=' mt-2 mr-3 px-2 text-2xl text-white'>  <NavLink to='/'>
                   <BsFillJournalBookmarkFill></BsFillJournalBookmarkFill> </NavLink> </li>
 
-                <li title='dashboard' className='mt-2 mr-3 text-2xl'>  <NavLink to='/dashboard'> <RiDashboardFill></RiDashboardFill> </NavLink> </li>
+                <li title='dashboard' className='mt-2 mr-3 text-2xl text-white'>  <NavLink to='/dashboard'> <RiDashboardFill></RiDashboardFill> </NavLink> </li>
 
               
 
-                <li  className='mt-2 mr-3 text-2xl px-3'>  <NavLink to='/'> <BsFillCartCheckFill></BsFillCartCheckFill> </NavLink> </li>
+                <li  className='mt-2 mr-3 text-2xl px-3 text-white'>  <NavLink to='/'> <BsFillCartCheckFill></BsFillCartCheckFill> </NavLink> </li>
 
 
                 <li class="nav-item dropdown">
@@ -72,7 +73,7 @@ const Nav = () => {
 
                     <li class="nav-item ms-2">
                       {user ? <button onClick={logout} type="button" class="btn btn-danger ">Log Out</button> :
-                        <NavLink 
+                        <NavLink
                         to='/login' type="button" className="btn btn-danger ">Get Started</NavLink>
                       }
                     </li>
