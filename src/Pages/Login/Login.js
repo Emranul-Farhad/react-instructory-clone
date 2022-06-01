@@ -5,16 +5,19 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-fireba
 import { NavLink, useNavigate } from 'react-router-dom';
 import Nav from '../../components/navbar/Nav';
 import './Login.css'
+import {FcGoogle} from 'react-icons/fc'
 
 
 const Login = () => {
 
     // navigate
     const navigate = useNavigate()
-    // react hppk form
+    // react hook form
     const { register, formState: { errors }, handleSubmit } = useForm();
+
     // login with google
     const [signInWithGoogle, googleuser, googleloading, googleerror] = useSignInWithGoogle(auth);
+
     // login with emaial , password
     const [
         signInWithEmailAndPassword,
@@ -23,12 +26,12 @@ const Login = () => {
         signerror,
     ] = useSignInWithEmailAndPassword(auth);
 
+
     // handel submit control
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password)
         console.log("adhhs", data);
-        // login with google
-
+        
     }
 
     // navigate handel
@@ -43,7 +46,7 @@ const Login = () => {
     }
 
     // handel toogle 
-    const [ switches , setSwitches] = useState(true)
+    const [switches, setSwitches] = useState(true)
 
     const loginsw = () => {
         setSwitches(!switches)
@@ -60,58 +63,108 @@ const Login = () => {
         <div>
             <Nav></Nav>
 
-            <section className="forms-section">
-  <h1 className="section-title">Animated Forms</h1>
-  <div className="forms">
-    <div  className={switches ? "form-wrapper is-active" : " " } >
-      <button onClick={loginsw} type="button"  className="switcher switcher-login">
-        Login
-        <span className="underline"></span>
-      </button>
-      <form className="form form-login">
-        <fieldset>
-          <legend>Please, enter your email and password for login.</legend>
-          <div className="input-block">
-            <label for="login-email">E-mail</label>
-            <input id="login-email" type="email" required/>
-          </div>
-          <div className="input-block">
-            <label for="login-password">Password</label>
-            <input id="login-password" type="password" required/>
-          </div>
-        </fieldset>
-        <button type="submit" className="btn-login">Login</button>
-      </form>
-    </div>
-    <div className={switches ? "" : "form-wrapper is-active" }>
-      <button onClick={signswitch} type="button" 
-    //   className={switches ? "switcher switcher-signup" : "" }
-      className="switcher switcher-signup"
-      >
-        Sign Up
-        <span className="underline"></span>
-      </button>
-      <form className="form form-signup">
-        <fieldset>
-          <legend>Please, enter your email, password and password confirmation for sign up.</legend>
-          <div className="input-block">
-            <label for="signup-email">E-mail</label>
-            <input id="signup-email" type="email" required/>
-          </div>
-          <div className="input-block">
-            <label for="signup-password">Password</label>
-            <input id="signup-password" type="password" required/>
-          </div>
-          <div className="input-block">
-            <label for="signup-password-confirm">Confirm password</label>
-            <input id="signup-password-confirm" type="password" required/>
-          </div>
-        </fieldset>
-        <button type="submit" className="btn-signup">Continue</button>
-      </form>
-    </div>
-  </div>
-</section>
+            <section className="forms-section mt-20">
+                
+                    <div className='rounded-md shadow-3xl bg-[#e6e6e683] p-2'>
+                           <button onClick={() => signInWithGoogle()}> 
+                           <FcGoogle className='text-4xl' > </FcGoogle> </button>
+                     </div>
+
+                <div className="forms">
+                    <div className={switches ? "form-wrapper is-active" : " "}>
+
+                        <button onClick={loginsw} type="button" className="switcher switcher-login">
+                            Login
+                            <span className="underline"></span>
+                        </button>
+
+                        {/* login from strart here */}        
+                        <form onSubmit={handleSubmit(onSubmit)} className="form form-login">
+                            <fieldset>
+                           
+                                <div className="input-block">
+                                    <label for="login-email">E-mail</label>
+                                    <input
+                                        placeholder='abc@gmail.com'
+                                        id="login-email"
+                                        type="email"
+                                        {...register("email", {
+                                            required: {
+                                                value: true,
+                                                message: "Email required"
+                                            },
+                                            pattern: {
+                                                value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                                message: 'invalid Email'
+                                            }
+                                        })}
+                                    />
+                                    <label className="label">
+                                        {errors.email?.type === 'pattern' && <span className="label-text-alt text-[red] "> {errors.email.message} </span>}
+                                        {errors.email?.type === 'required' && <span className="label-text-alt text-[red] "> {errors.email.message} </span>}
+                                    </label>
+                                </div>
+
+                                <div className="input-block">
+                                    <label for="login-password">Password</label>
+                                    <input
+                                        id="login-password"
+                                        type="password"
+                                        {...register("password", {
+                                            required: {
+                                                value: true,
+                                                message: "Passwod required"
+                                            },
+                                            pattern: {
+                                                value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                                                message: <span> eight characters  one 
+                                                uppercase <br /> one lowercase <br /> one letter one  number <br />  one special character
+                                                </span>
+                                            }
+                                        })}
+                                    />
+                                      <label className="label">
+                                   {errors.password?.type === 'pattern' && <span className="label-text-alt text-red-600  "> {errors.password.message} </span>}
+                                     {errors.password?.type === 'required' && <span className="label-text-alt text-[#f00] "> {errors.password.message} </span>}
+                                </label>
+                                </div>
+                            </fieldset>
+                              
+                              <h6 className='text-red-600 font-bold text-1xl '> {loginformerror} </h6>
+
+                            <input type="submit" className='btn-login' />
+                        </form>   
+
+                        {/* login  fform en here */}
+
+                    </div>
+                   
+                    <div className={switches ? "" : "form-wrapper is-active"}>
+                        <button onClick={signswitch} type="button" className="switcher switcher-signup"   >
+                            Sign Up
+                            <span className="underline"></span>
+                        </button>
+                        <form className="form form-signup">
+                            <fieldset>
+                                <legend>Please, enter your email, password and password confirmation for sign up.</legend>
+                                <div className="input-block">
+                                    <label for="signup-email">E-mail</label>
+                                    <input id="signup-email" type="email" required />
+                                </div>
+                                <div className="input-block">
+                                    <label for="signup-password">Password</label>
+                                    <input id="signup-password" type="password" required />
+                                </div>
+                                <div className="input-block">
+                                    <label for="signup-password-confirm">Confirm password</label>
+                                    <input id="signup-password-confirm" type="password" required />
+                                </div>
+                            </fieldset>
+                            <button type="submit" className="btn-signup">Continue</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
 
         </div>
 

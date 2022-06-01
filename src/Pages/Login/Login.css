@@ -127,12 +127,16 @@ body {
 	transform-origin: top;
 }
 
+
+
+
 .form-login {
-	animation: hideLogin .3s ease-out forwards;
+	animation: hideLogin .4s ease-out forwards;
 }
 
 .form-wrapper.is-active .form-login {
-	animation: showLogin .3s ease-in forwards;
+	animation: showLogin .4s ease-in forwards;
+    box-shadow: -7px -3px 5px 3px gray;
 }
 
 @keyframes showLogin {
@@ -158,17 +162,18 @@ body {
 		transform: translate(0, 0);
 	}
 	100% {
-		background: #d7e7f1;
+		background: #0076a3;
 		transform: translate(40%, 10px);
 	}
 }
 
 .form-signup {
-	animation: hideSignup .3s ease-out forwards;
+	animation: hideSignup .4s ease-out forwards;
 }
 
 .form-wrapper.is-active .form-signup {
-	animation: showSignup .3s ease-in forwards;
+	animation: showSignup .4s ease-in forwards;
+    box-shadow: 10px 10px 10px 10px gray;
 }
 
 @keyframes showSignup {
@@ -194,7 +199,7 @@ body {
 		transform: translate(0, 0) scaleY(.8);
 	}
 	100% {
-		background: #d7e7f1;
+		background: #0076a3;
 		transform: translate(-40%, 10px) scaleY(.8);
 	}
 }
@@ -273,13 +278,13 @@ body {
 
 .btn-login {
 	color: #fbfdff;
-	background: #a7e245;
+	background: #FA4567;
 	transform: translateX(-30%);
 }
 
 .btn-signup {
-	color: #a7e245;
+	color: #FA4567;
 	background: #fbfdff;
-	box-shadow: inset 0 0 0 2px #a7e245;
+	box-shadow: inset 0 0 0 2px #FA4567;
 	transform: translateX(30%);
 }
