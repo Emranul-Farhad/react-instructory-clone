@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import auth from '../../Firekey/Firekey';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Nav from '../../components/navbar/Nav';
 import './Login.css'
 import {FcGoogle} from 'react-icons/fc'
+import Swal from 'sweetalert2';
+
 
 
 const Login = () => {
@@ -51,16 +53,6 @@ const Login = () => {
    
 
 
-    // navigate handel
-    if (googleuser || signuser) {
-        navigate('/')
-    }
-
-    //  handeel errro
-    let loginformerror;
-    if (signerror || googleerror) {
-        loginformerror = <h6> {signerror?.message || googleerror?.message} </h6>
-    }
 
     // handel toogle 
     const [switches, setSwitches] = useState(true)
@@ -73,14 +65,47 @@ const Login = () => {
         setSwitches(false)
     }
 
-// sign in control
-// const onSubmitsignin = data => {
-//     console.log(data);
-// }
 
-const onSubmitsignin = data => {
+// sign in control
+const [
+    createUserWithEmailAndPassword,
+    suser,
+    loading,
+    serror,
+] = useCreateUserWithEmailAndPassword(auth);
+
+
+// sign in button handel
+  const onSubmitsignin = data => {
     console.log(data);
-}
+    if (data.password !== data.confirmpassword) {
+        return (
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'passwords mitchmatched!',
+                footer: '<aType same 8 character password  </a>'
+              })
+        )
+    }
+     createUserWithEmailAndPassword(data.email, data.password)
+    console.log(data);
+  }
+
+
+  //  handeel errro
+  let loginformerror;
+  if (signerror || googleerror || serror) {
+      loginformerror = <h6> {signerror?.message || googleerror?.message} </h6>
+  }
+
+
+ // navigate handel
+ if (googleuser || signuser || suser ) {
+    navigate('/')
+} 
+
+
 
 
     return (
@@ -151,7 +176,7 @@ const onSubmitsignin = data => {
                         {/* sign in from start here */}
 
                         <form onSubmit={handleSubmit(onSubmitsignin)} className="form form-signup">
-                            <>
+                            <fieldset>
                 
                                 <div className="input-block">
                                     <label  for="signup-email">E-mail</label>
@@ -220,8 +245,8 @@ const onSubmitsignin = data => {
                                             {errors.confirmpassword?.type === 'required' && <span className="label-text-alt text-[#f00] "> {errors.confirmpassword.message} </span>}
                                         </label>
                                 </div>
-
-                            </>
+                                <h6 className='text-red-600 font-bold text-1xl '> {loginformerror} </h6>
+                            </fieldset>
                             {/* <button type="submit" className="btn-signup">Continue</button> */}
                             <input type="submit" className='btn-signup' />
                         </form>
