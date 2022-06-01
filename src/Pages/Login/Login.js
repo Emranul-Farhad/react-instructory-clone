@@ -27,12 +27,29 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
 
-    // handel submit control
-    const onSubmit = data => {
-        signInWithEmailAndPassword(data.email, data.password)
-        console.log("adhhs", data);
-        
+    // login email // password handel taking 
+   const [emaillog , setEmaillog] = useState('')
+   const [passwordlog , setPasswordlog] = useState('')
+   
+
+    const loginemail = (event)=> {
+        setEmaillog(event.target.value)
+        console.log(event.target.value);
     }
+
+    const getpassword = (event)=> {
+        setPasswordlog(event.target.value)
+        console.log(event.target.value);
+    }
+
+    // handel login button
+    const onSubmit = event => {
+        signInWithEmailAndPassword(emaillog, passwordlog)
+        event.preventDefault();
+        console.log(emaillog);  
+    }
+   
+
 
     // navigate handel
     if (googleuser || signuser) {
@@ -56,7 +73,14 @@ const Login = () => {
         setSwitches(false)
     }
 
+// sign in control
+// const onSubmitsignin = data => {
+//     console.log(data);
+// }
 
+const onSubmitsignin = data => {
+    console.log(data);
+}
 
 
     return (
@@ -79,54 +103,33 @@ const Login = () => {
                         </button>
 
                         {/* login from strart here */}        
-                        <form onSubmit={handleSubmit(onSubmit)} className="form form-login">
+                        <form  onSubmit={onSubmit} className="form form-login">
                             <fieldset>
                            
                                 <div className="input-block">
-                                    <label for="login-email">E-mail</label>
+                                    <label className='text-1xl font-bold font-mono mr-[130px]' for="login-email">E-mail*</label>
                                     <input
+                                    onBlur={loginemail}
                                         placeholder='abc@gmail.com'
                                         id="login-email"
                                         type="email"
-                                        {...register("email", {
-                                            required: {
-                                                value: true,
-                                                message: "Email required"
-                                            },
-                                            pattern: {
-                                                value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                                                message: 'invalid Email'
-                                            }
-                                        })}
+                                        name='email'
+                                        required
+                                       
                                     />
-                                    <label className="label">
-                                        {errors.email?.type === 'pattern' && <span className="label-text-alt text-[red] "> {errors.email.message} </span>}
-                                        {errors.email?.type === 'required' && <span className="label-text-alt text-[red] "> {errors.email.message} </span>}
-                                    </label>
+                                 
                                 </div>
 
                                 <div className="input-block">
-                                    <label for="login-password">Password</label>
+                                    <label for="login-password" className='text-1xl font-bold font-mono mr-[130px]' >Password*</label>
                                     <input
+                                    onBlur={getpassword}
                                         id="login-password"
                                         type="password"
-                                        {...register("password", {
-                                            required: {
-                                                value: true,
-                                                message: "Passwod required"
-                                            },
-                                            pattern: {
-                                                value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-                                                message: <span> eight characters  one 
-                                                uppercase <br /> one lowercase <br /> one letter one  number <br />  one special character
-                                                </span>
-                                            }
-                                        })}
+                                        name='password'
+                                        required
                                     />
-                                      <label className="label">
-                                   {errors.password?.type === 'pattern' && <span className="label-text-alt text-red-600  "> {errors.password.message} </span>}
-                                     {errors.password?.type === 'required' && <span className="label-text-alt text-[#f00] "> {errors.password.message} </span>}
-                                </label>
+                                     
                                 </div>
                             </fieldset>
                               
@@ -135,32 +138,92 @@ const Login = () => {
                             <input type="submit" className='btn-login' />
                         </form>   
 
-                        {/* login  fform en here */}
-
+                        {/* login  form end here */}
                     </div>
                    
+
                     <div className={switches ? "" : "form-wrapper is-active"}>
                         <button onClick={signswitch} type="button" className="switcher switcher-signup"   >
                             Sign Up
                             <span className="underline"></span>
                         </button>
-                        <form className="form form-signup">
-                            <fieldset>
-                                <legend>Please, enter your email, password and password confirmation for sign up.</legend>
+
+                        {/* sign in from start here */}
+
+                        <form onSubmit={handleSubmit(onSubmitsignin)} className="form form-signup">
+                            <>
+                
                                 <div className="input-block">
-                                    <label for="signup-email">E-mail</label>
-                                    <input id="signup-email" type="email" required />
+                                    <label  for="signup-email">E-mail</label>
+                                    <input 
+                                    id="signup-email" 
+                                    type="email" 
+                                    {...register("email", {
+                                        required: {
+                                            value: true,
+                                            message: "Email required"
+                                        },
+                                        pattern: {
+                                            value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                            message: 'invalid Email'
+                                        }
+                                    })}
+                                    />
+                                    <label className="label">
+                                            {errors.email?.type === 'pattern' && <span className="label-text-alt text-[red] "> {errors.email.message} </span>}
+                                            {errors.email?.type === 'required' && <span className="label-text-alt text-[red] "> {errors.email.message} </span>}
+                                        </label>
                                 </div>
+
+
                                 <div className="input-block">
                                     <label for="signup-password">Password</label>
-                                    <input id="signup-password" type="password" required />
+                                    <input
+                                     id="signup-password" 
+                                     type="password" 
+                                     {...register("password", {
+                                        required: {
+                                            value: true,
+                                            message: "Passwod required"
+                                        },
+                                        pattern: {
+                                            value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                                            message: 'eight characters one uppercase  lowercase letter one number one special character'
+                                        }
+                                    })}
+                                     />
+                                      <label className="label">
+                                            {errors.password?.type === 'pattern' && <span className="label-text-alt text-red-600  "> {errors.password.message} </span>}
+                                            {errors.password?.type === 'required' && <span className="label-text-alt text-[#f00] "> {errors.password.message} </span>}
+                                        </label>
                                 </div>
+
+
                                 <div className="input-block">
                                     <label for="signup-password-confirm">Confirm password</label>
-                                    <input id="signup-password-confirm" type="password" required />
+                                    <input
+                                     id="signup-password-confirm" 
+                                    type="password"
+                                    {...register("confirmpassword", {
+                                        required: {
+                                            value: true,
+                                            message: "Passwod required"
+                                        },
+                                        pattern: {
+                                            value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                                            message: 'eight characters one uppercase  lowercase letter one number one special character'
+                                        }
+                                    })}
+                                    />
+                                    <label className="label">
+                                            {errors.confirmpassword?.type === 'pattern' && <span className="label-text-alt text-red-600  "> {errors.confirmpassword.message} </span>}
+                                            {errors.confirmpassword?.type === 'required' && <span className="label-text-alt text-[#f00] "> {errors.confirmpassword.message} </span>}
+                                        </label>
                                 </div>
-                            </fieldset>
-                            <button type="submit" className="btn-signup">Continue</button>
+
+                            </>
+                            {/* <button type="submit" className="btn-signup">Continue</button> */}
+                            <input type="submit" className='btn-signup' />
                         </form>
                     </div>
                 </div>
