@@ -14,6 +14,7 @@ import Myorders from './Pages/Dashboard/Myorders';
 import Admins from './Pages/Dashboard/Admins/Admins';
 import Profile from './Pages/Dashboard/Profile/Profile';
 import Profiledetails from './Pages/Dashboard/Profile/Profiledetails';
+import Mycourses from './components/My courses/Mycourses';
 
 
 
@@ -27,6 +28,8 @@ function App() {
        <Route path='/' element={<Hero></Hero>} ></Route>
        <Route path='/login' element={<Login></Login>} ></Route>
        <Route path='/signin' element={<Signin></Signin>} ></Route>
+      <Route path='/courses' element={<Mycourses></Mycourses>} ></Route>
+
        <Route path='/dashboard' element={<Dashboard></Dashboard>} >
        <Route index element={<Myorders></Myorders> } ></Route>
         <Route path='users' element={<Users></Users>} ></Route>

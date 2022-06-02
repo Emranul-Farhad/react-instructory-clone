@@ -46,9 +46,9 @@ const Nav = () => {
               <div className='d-flex mx-auto ms-auto shadow-2xl rounded-lg px-2 p-1 bg-[#154766]'>
 
 
-                <li title=' MY courses' className='mt-2 mr-2 text-2xl px-2 text-white'> <NavLink to='/upload'> <BsCollectionPlayFill></BsCollectionPlayFill>  </NavLink> </li>
+                <li title=' MY courses' className='mt-2 mr-2 text-2xl px-2 text-white'> <NavLink to='/courses'> <BsCollectionPlayFill></BsCollectionPlayFill>  </NavLink> </li>
 
-                <li title='course Upload' className='mt-1 mr-2 text-3xl px-2 text-white'> <NavLink to='/upload'> <BiCloudUpload></BiCloudUpload>  </NavLink> </li>
+                <li title='course Upload' className='mt-1 mr-2 text-3xl px-2 text-white'> <NavLink to='/'> <BiCloudUpload></BiCloudUpload>  </NavLink> </li>
 
 
                 <li title='Blogs' className=' mt-2 mr-3 px-2 text-2xl text-white'>  <NavLink to='/'>
