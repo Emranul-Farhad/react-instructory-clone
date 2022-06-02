@@ -38,7 +38,7 @@
 
   }
   
-  section {
+  /* section {
       position: absolute;
       top: 0;
       height: 100vh;
@@ -70,7 +70,7 @@
   section:target h6 {
       opacity: 0;
       animation: 2s fadeIn forwards .5s;
-  }
+  } */
   
   #first {
     background:var(--primary-color);

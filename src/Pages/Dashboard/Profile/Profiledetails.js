@@ -2,13 +2,15 @@ import React from 'react';
 import { FaUsers, FaStar, FaPlayCircle , FaPenNib} from 'react-icons/fa'
 import { ImLocation2 } from 'react-icons/im'
 import { GiLevelFourAdvanced } from 'react-icons/gi'
+import { useNavigate } from 'react-router-dom';
+import Profile from './Profile';
 
 
 
 const Profiledetails = () => {
 
     // avigate to profile section
-    //  const 
+     const navigate = useNavigate()
 
     return (
         <div className='bg-[#FBFBFB] w-[100%] '>
@@ -72,7 +74,7 @@ const Profiledetails = () => {
                         <h6 className='text-left mt-2 '> Education </h6>
                     </div>
                     <div className='w-7 h-7 bg-[#1aa] mt-10 '>
-                        <button className='text-2xl' > <FaPenNib></FaPenNib> </button>
+                        <button  onClick={ ()=> navigate ('/dashboard/profileedit') } className='text-2xl' > <FaPenNib></FaPenNib> </button>
                     </div>
                 </div>
             </div>
