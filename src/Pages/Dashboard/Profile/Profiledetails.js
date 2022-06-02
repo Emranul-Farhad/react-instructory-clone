@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaUsers, FaStar, FaPlayCircle } from 'react-icons/fa'
+import { FaUsers, FaStar, FaPlayCircle , FaPenNib} from 'react-icons/fa'
 import { ImLocation2 } from 'react-icons/im'
 import { GiLevelFourAdvanced } from 'react-icons/gi'
 
@@ -7,6 +7,8 @@ import { GiLevelFourAdvanced } from 'react-icons/gi'
 
 const Profiledetails = () => {
 
+    // avigate to profile section
+    //  const 
 
     return (
         <div className='bg-[#FBFBFB] w-[100%] '>
@@ -62,14 +64,20 @@ const Profiledetails = () => {
                         <h6 className='text-white font-extrabold mt-[-10px]'> Educatiuon & others </h6>
                     </div>
                     <div class="card-body">
-                        <h2 class="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <h6 className='text-left font-bold text-2xl '> Education </h6>
+                        <h6 className='text-left mt-2'>If a dog chews shoes whose shoes does he choose?</h6>
+                        <h6 className=' mt-4 text-left font-bold text-2xl '> Skill </h6>
+                        <h6 className='text-left mt-2'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, aspernatur. aa</h6>
+                        <h6 className=' mt-3 text-left font-bold text-2xl '> Languages </h6>
+                        <h6 className='text-left mt-2 '> Education </h6>
                     </div>
-                    
+                    <div className='w-7 h-7 bg-[#1aa] mt-10 '>
+                        <button className='text-2xl' > <FaPenNib></FaPenNib> </button>
+                    </div>
                 </div>
             </div>
 
-
+<h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, vero.</h1>
         </div>
     );
 };
