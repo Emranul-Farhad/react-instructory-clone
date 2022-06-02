@@ -1,39 +1,58 @@
-import React from 'react';
+// import React from 'react';
 
 
 
 
-const Userd = ({ userd }) => {
+// const Userd = ({ userd }) => {
 
-    const makeadmin = (email) => {
-        fetch(`https://shielded-chamber-79155.herokuapp.com/users/admin/${email}`, {
-            method: "PUT"
-        })
-            .then(res => {
-                if (res.status === 401) {
-                    console.log("sorry");
-                    alert("You cannot make a admin ")
-                }
-                res.json()
-            })
-            .then(data => {
-                console.log(data, "adj");
-            })
-    }
+//     const makeadmin = (email) => {
+//         fetch(`https://shielded-chamber-79155.herokuapp.com/users/admin/${email}`, {
+//             method: "PUT"
+//         })
+//             .then(res => {
+//                 if (res.status === 401) {
+//                     console.log("sorry");
+//                     alert("You cannot make a admin ")
+//                 }
+//                 res.json()
+//             })
+//             .then(data => {
+//                 console.log(data, "adj");
+//             })
+//     }
 
-    return (
-        <div>
+//     return (
+//         <div>
             
-            <div>
-               { userd?.role === "admin" ? <h6 className='text-left d-none' > {userd.email} </h6> : <h6> {userd?.email} </h6> }
-                {
-                    userd?.role === "admin" ? <button disabled={userd?.role === 'admin'} 
-                     className=' d-none btn btn-primary bg-gradient-to-r from-[#00A99D] to-[#0898D7] text-white font-bold rounded-md'> admin </button> :
-                        <button onClick={() => makeadmin(userd.email)} className='btn btn-primary bg-gradient-to-r from-[#00A99D] to-[#0898D7] text-white font-bold rounded-md'> make admin</button>
-                }
-            </div>
-        </div>
-    );
-};
 
-export default Userd;
+
+// <div class="overflow-x-auto">
+//   <table class="table table-zebra w-full">
+
+//     <thead>
+//       <tr>
+//         <th></th>
+//         <th>Name</th>
+//         <th>Job</th>
+//         <th>Favorite Color</th>
+//       </tr>
+//     </thead>
+//     <tbody>
+    
+//       <tr>
+//         <th>1</th>
+//         <td>Cy Ganderton</td>
+//         <td>Quality Control Specialist</td>
+//         <td>Blue</td>
+//       </tr>
+      
+     
+//     </tbody>
+//   </table>
+// </div>
+
+//         </div>
+//     );
+// };
+
+// export default Userd;

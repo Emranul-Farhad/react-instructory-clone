@@ -28,10 +28,6 @@ const Dashboard = () => {
 <NavLink to='/dashboard' >All orders</NavLink>
 </div>
 
-   <NavLink to='/dashboard/admins'> <FiUsers className='text-white' ></FiUsers> Users </NavLink>
-
-   <NavLink to='/dashboard'> <FcPackage></FcPackage> </NavLink>
-   <NavLink to='/dashboard'> </NavLink>
  </nav>
   
 
