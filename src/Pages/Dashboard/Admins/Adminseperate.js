@@ -1,12 +1,12 @@
-import React from 'react';
+// import React from 'react';
 
-const Adminseperate = ({admin}) => {
+// const Adminseperate = ({admin}) => {
 
-    return (
-        <div>
-           { admin.role === "admin" && <h6> {admin.email} </h6> }
-        </div>
-    );
-};
+//     return (
+//         <div>
+//            { admin.role === "admin" && <h6> {admin.email} </h6> }
+//         </div>
+//     );
+// };
 
-export default Adminseperate;
+// export default Adminseperate;

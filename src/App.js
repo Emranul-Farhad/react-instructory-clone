@@ -12,6 +12,9 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import Users from './Pages/Dashboard/Users';
 import Myorders from './Pages/Dashboard/Myorders';
 import Admins from './Pages/Dashboard/Admins/Admins';
+import Profile from './Pages/Dashboard/Profile/Profile';
+import Profiledetails from './Pages/Dashboard/Profile/Profiledetails';
+
 
 
 
@@ -25,9 +28,13 @@ function App() {
        <Route path='/login' element={<Login></Login>} ></Route>
        <Route path='/signin' element={<Signin></Signin>} ></Route>
        <Route path='/dashboard' element={<Dashboard></Dashboard>} >
-         <Route index element={<Myorders></Myorders> } ></Route>
-         <Route path='users' element={<Users></Users>} ></Route>
-         <Route path='admins' element={<Admins></Admins> } ></Route>
+       <Route index element={<Myorders></Myorders> } ></Route>
+        <Route path='users' element={<Users></Users>} ></Route>
+        <Route path='admins' element={<Admins></Admins> } ></Route>
+        {/* <Route path='profile' element={<Profile></Profile>} ></Route> */}
+        <Route path='profile' element={<Profiledetails></Profiledetails>} ></Route>
+       {/* <Route path='profile' element={<Profileshow></Profileshow>} ></Route> */}
+
        </Route>
      </Routes>
     </div>

@@ -3,6 +3,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 import {RiAdminFill} from 'react-icons/ri'
 import {FiUsers} from "react-icons/fi"
 import {FcPackage} from 'react-icons/fc'
+import {CgProfile} from 'react-icons/cg'
 import './Dashboard.css'
 
 
@@ -18,15 +19,21 @@ const Dashboard = () => {
    </NavLink>
   </div>
 
-<div className='mr-6 flex flex-row justify-center items-center text-white font-bold uppercase mt-2 bg-[#0076a3]'>
+<div className='mr-6 flex flex-row justify-center items-center text-white font-bold uppercase mt-5 bg-[#0076a3]'>
 <RiAdminFill className='text-3xl'></RiAdminFill>
 <NavLink to='/dashboard/admins' className='p-1' >Admins</NavLink>
 </div>
    
-<div className='ms-2 flex flex-row justify-center items-center text-white font-bold uppercase mt-2 bg-[#0076a3]'>
+<div className='ms-2 flex flex-row justify-center items-center text-white font-bold uppercase mt-5 bg-[#0076a3]'>
 <FcPackage className='text-3xl mr-1'></FcPackage>
 <NavLink to='/dashboard' >All orders</NavLink>
 </div>
+
+<div className='ms-2 flex flex-row justify-center items-center text-white font-bold uppercase mt-5 bg-[#0076a3]'>
+<CgProfile className='text-3xl mr-1'></CgProfile>
+<NavLink to='/dashboard/profile' > My PRofile </NavLink>
+</div>
+
 
  </nav>
   
