@@ -9,7 +9,7 @@ const Mycourses = () => {
 
 
     return (
-        <div className='bg-[#FBFBFB]'>  
+        <div className='bg-[#FbFbFb]'>  
         <Nav></Nav>
         <div className=' mx-20'>
             <h6>Your courses</h6>

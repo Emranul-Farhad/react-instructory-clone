@@ -33,20 +33,18 @@ const Users = () => {
 
 
     return (
-        <div>
+        <div className='bg-[#FBFBFB]'>
             <div>
-                <h2 className='text-left'> {usersd.length}  </h2>
-                {
-                    // usersd.map(userd => <Userd userd={userd}></Userd>)
-                }
+
             </div>
-            <div class="overflow-x-auto mx-[12%] ">
+            <div class="overflow-x-auto mx-[12%] border-1 ">
                 <table class="table table-zebra w-full">
 
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>number</th>
                             <th>Name</th>
+                            <th></th>
                             <th>Role</th>
 
                         </tr>
@@ -54,24 +52,27 @@ const Users = () => {
                     <tbody>
 
                         {
-                            usersd.map(( userd , index )  => <tr>
-                                <th> {index +1}</th>
-                                <td>
-                                    <h6> {userd?.email} </h6>
-                                </td>
+                            usersd.map((userd, index) =>
 
-                                <td>
-                                    <td>
-                                        -
+                                <tr>
+                                    {userd?.role !== 'admin' && <th> {index + 1}</th>}
+
+                                    {userd?.role !== 'admin' && <td>
+                                        <h6> {userd?.email} </h6>
+                                    </td>}
+
+
+
+                                    {userd?.role !== "admin" && <td>
+
+                                        <button onClick={() => makeadmin(userd.email)} className='btn btn-primary bg-gradient-to-r from-[#00A99D] to-[#0898D7] text-white font-bold rounded-md'> make admin</button>
                                     </td>
-                                    {
-                                        userd?.role === "admin" ? <button disabled={userd?.role === 'admin'}
-                                            className='btn btn-primary bg-gradient-to-r from-[#00A99D] to-[#0898D7] text-white font-bold rounded-md'> admin </button> :
-                                            <button onClick={() => makeadmin(userd.email)} className='btn btn-primary bg-gradient-to-r from-[#00A99D] to-[#0898D7] text-white font-bold rounded-md'> make admin</button>
+
                                     }
 
-                                </td>
-                            </tr>)
+                                    {userd?.role !== 'admin' && <td> dfddfdh </td>}
+
+                                </tr>)
                         }
 
 
@@ -85,3 +86,12 @@ const Users = () => {
 };
 
 export default Users;
+
+
+
+
+// {
+//     userd?.role === "admin" ? <button disabled={userd?.role === 'admin'}
+//         className='btn btn-primary bg-gradient-to-r from-[#00A99D] to-[#0898D7] text-white font-bold rounded-md'> already admin </button> :
+//         <button onClick={() => makeadmin(userd.email)} className='btn btn-primary bg-gradient-to-r from-[#00A99D] to-[#0898D7] text-white font-bold rounded-md'> make admin</button>
+// }

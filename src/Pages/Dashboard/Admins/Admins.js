@@ -15,17 +15,17 @@ const Admins = () => {
 
 
     return (
-        <div>
+        <div className='bg-[#FBFBFB]'>
 
 
-            <div class="overflow-x-auto mx-[12%]">
+            <div class="overflow-x-auto mx-[12%] border-1">
                 <table class="table table-zebra w-full">
 
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Job</th>
+                            <th>number</th>
+                            <th>email</th>
+                            <th>Role</th>
                             {/* <th>Favorite Color</th> */}
                         </tr>
                     </thead>
