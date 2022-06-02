@@ -29,7 +29,7 @@ const Nav = () => {
       <nav class="navbar navbar-expand-lg navbar-light" style={  
         pathname.includes('/login') ?  {background: `url(${nav})`, padding: "5px ,15px 5px" } : {clasName : ""} &&
         pathname.includes('/signin') ?  {background: `url(${nav})`, padding: "5px ,15px 5px" } : {clasName : ""} &&
-        pathname.includes('/courses') ?  {background: `url(${nav})`, padding: "5px ,15px 5px" } : {clasName : ""}
+        pathname.includes('/courses') ?  {background: `url(${nav})`,} : {clasName : ""}
       }>
         <div class="container-fluid mt-3">
           <a className="navbar-brand logo" href="/"> <img className='fluid' width={200} src="https://instructory.net/assets/images/logo-new-white.png" alt="" /> </a>
