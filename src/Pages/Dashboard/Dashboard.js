@@ -10,9 +10,26 @@ const Dashboard = () => {
     return (
         <div>
 
-<nav className='navd' >
-   <NavLink to='/dashboard/users'> <RiAdminFill className='text-black'></RiAdminFill> </NavLink>
-   <NavLink to='/dashboard/admins'> <FiUsers></FiUsers> </NavLink>
+<nav className='navd p-2' >
+
+<div className='flex flex-row justify-center items-center text-white font-bold uppercase mt-2 bg-[#0076a3]'> 
+   {<FiUsers className='text-3xl' ></FiUsers>}
+  <NavLink className=" p-2 ms-0 " to='/dashboard/users' >Users
+   </NavLink>
+  </div>
+
+<div className='mr-6 flex flex-row justify-center items-center text-white font-bold uppercase mt-2 bg-[#0076a3]'>
+<RiAdminFill className='text-3xl'></RiAdminFill>
+<NavLink to='/dashboard/admins' className='p-1' >Admins</NavLink>
+</div>
+   
+<div className='ms-2 flex flex-row justify-center items-center text-white font-bold uppercase mt-2 bg-[#0076a3]'>
+<FcPackage className='text-3xl mr-1'></FcPackage>
+<NavLink to='/dashboard' >All orders</NavLink>
+</div>
+
+   <NavLink to='/dashboard/admins'> <FiUsers className='text-white' ></FiUsers> Users </NavLink>
+
    <NavLink to='/dashboard'> <FcPackage></FcPackage> </NavLink>
    <NavLink to='/dashboard'> </NavLink>
  </nav>
