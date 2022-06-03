@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from '../navbar/Nav';
+import Allcourse from './Allcourse';
+
+
+
 
 const Allcourses = () => {
+
+
+    const [Coursescards, setCoursescard] = useState([])
+
+    useEffect(() => {
+        fetch("https://shielded-chamber-79155.herokuapp.com/courses")
+            .then(res => res.json())
+            .then(data => setCoursescard(data))
+    }, [])
+
     return (
         <div>
             <Nav></Nav>
-            <h6>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam, ut deleniti. Nisi ratione pariatur exercitationem quisquam! Ab deserunt saepe est cupiditate qui, labore fuga, voluptate laboriosam vel omnis natus nemo? Ea ipsam voluptatem sit! Officia soluta harum delectus eligendi quidem?
-            </h6>
+
+             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
+            mx-20 '>
+                 {
+                     Coursescards.map(courses  => <Allcourse key={courses._id} courses={courses} ></Allcourse> )
+                 }
+             </div>
         </div>
     );
 };
