@@ -14,6 +14,9 @@ const Title = () => {
             .then(data => setCoursecard(data))
     }, [])
 
+    const courscardslices = Coursecards.slice(0 ,9)
+    console.log(courscardslices);
+
 //    navigate handel
      const navigate = useNavigate()    
 
@@ -31,7 +34,7 @@ const Title = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
             mx-20 '>
                 {
-                    Coursecards.map(coursecarda => <TitleCard coursecard={coursecarda} ></TitleCard>)
+                    courscardslices?.map(coursecarda => <TitleCard coursecard={coursecarda} ></TitleCard>)
 
                 }
             </div>
