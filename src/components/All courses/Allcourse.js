@@ -13,7 +13,11 @@ const Allcourse = ({courses}) => {
            <div>
             {/*  card start from here */}
 
-            <div className="containers mt-20">
+            <div  data-aos="fade-down" data-aos-offset="200"
+    data-aos-delay="10"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+            className="containers mt-20">
                 <div className=" card">
                     <div className="image">
                         <img href="#" src={img} alt='teacher' />

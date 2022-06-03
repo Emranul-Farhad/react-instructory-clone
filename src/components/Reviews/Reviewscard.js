@@ -12,7 +12,10 @@ const Reviewscard = ({ cardinfo }) => {
         <div>
             <div>
 
-                <div class="containerreview">
+                <div  data-aos="zoom-in" data-aos-offset="200"
+    data-aos-delay="10"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out" class="containerreview">
                     <div class="box">
                         <div class="box-content">
                            

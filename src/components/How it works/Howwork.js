@@ -13,8 +13,12 @@ const Howwork = () => {
                     <div className='sp'></div>
                 </div>
             </div>
-            <div className='flex flex-col lg:flex-row mx-10 '>
-                <div className='basis-2/4 mb-5 lg:mb-0'>
+            <div className='flex flex-col lg:flex-row mx-10 overflow-hidden'>
+                <div  data-aos="fade-down-right" data-aos-offset="200"
+    data-aos-delay="10"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+                 className='basis-2/4 mb-5 lg:mb-0'>
                     <h6 className='text-left mb-3 font-bold text-2xl'>Join <span className='text-[#1AA3D1] font-bold font-mono'>Instructory</span> Comunity</h6>
                     <h6 className='text-left leading-10'>Instructory is for everyone and different from everyone. You can teach or you can learn, in both way you can empower youself with lot of skills and support. <br />
 
@@ -26,7 +30,10 @@ const Howwork = () => {
                         </div>
                 </div>
 
-                <div className='basis-2/4 '>
+                <div  data-aos="fade-down-left" data-aos-offset="200"
+    data-aos-delay="10"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out" className='basis-2/4'>
                     <div className='lg:mx-5 iframe-container shadow-2xl rounded-2xl'>
                         <iframe title='video' width='500' height='294' src="https://www.youtube.com/embed/uFFnAvsV4OI?&theme=light&autoplay=1&autohide=1&modestbranding=1" frameborder="0"></iframe>
                     </div>

@@ -17,7 +17,10 @@ const Mycourses = () => {
             <div className='mx-20'>
                 <h6>Your courses</h6>
                 <div className='mt-20'>
-                    <div className='bg-[#fff] hover:shadow-2xl border-1 rounded-lg pb-5'>
+                    <div data-aos="zoom-out" data-aos-offset="200"
+    data-aos-delay="10"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out" className='bg-[#fff] hover:shadow-2xl border-1 rounded-lg pb-5'>
                         <div className='md:mx-20'>
                             <div className='flex flex-col lg:flex-row justify-between'>
                                 <h6 className='text-2xl text-[#ababab] mt-2 text-left lg:text-'>Purchased</h6>

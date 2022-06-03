@@ -3,7 +3,7 @@ import './Title.css'
 import TitleCard from './TitleCard';
 import Teacherfeature from '../Teacher feature/Teacherfeature';
 import { useNavigate } from 'react-router-dom';
-
+import 'aos/dist/aos.css';
 
 const Title = () => {
     const [Coursecards, setCoursecard] = useState([])
@@ -31,7 +31,7 @@ const Title = () => {
             </div>
 
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
+            <div  className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
             mx-20'>
                 {
                     courscardslices?.map(coursecarda => <TitleCard coursecard={coursecarda} ></TitleCard>)
