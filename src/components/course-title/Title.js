@@ -32,7 +32,7 @@ const Title = () => {
 
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
-            mx-20 '>
+            mx-20'>
                 {
                     courscardslices?.map(coursecarda => <TitleCard coursecard={coursecarda} ></TitleCard>)
 

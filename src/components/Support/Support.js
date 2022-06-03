@@ -1,15 +1,17 @@
 import React from 'react';
 import './Support.css'
 import support from '../../images/support.jpg'
-
+import 'aos/dist/aos.css';
 
 const Support = () => {
 
     return (
         <div>
             <div className='support'>
-                <div className='flex flex-col lg:flex-row'>
-                    <div className='p-5 support basis-2/4 '>
+                <div className='flex flex-col lg:flex-row overflow-hidden '>
+                    <div data-aos="fade-right" data-aos-delay="10"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out" className='p-5 support basis-2/4 '>
                         <div className="card card-compact supportform bg-base-100 shadow-xl rounded-2xl">
                             <figure class="px-[130px] pt-10">
                             <img className='w-[200px] h-[auto]' src={support}  alt="" />
@@ -29,7 +31,9 @@ const Support = () => {
                         </div>
                     </div>
 
-                    <div className='basis-2/4'>
+                    <div  data-aos="fade-left"  data-aos-delay="10"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out" className='basis-2/4'>
 
                        <div className='p-10'>
                        <img src="https://shikho.tech/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FformImg.2a9de5c1.png&w=750&q=75" alt="" />

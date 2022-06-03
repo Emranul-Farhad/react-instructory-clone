@@ -1,5 +1,9 @@
 import { Rating } from '@mui/material';
 import React from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+
 
 const Allcourse = ({courses}) => {
     const {star,courseName,img,name,price} = courses

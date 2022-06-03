@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Nav from '../navbar/Nav';
 import Allcourse from './Allcourse';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
@@ -21,7 +22,7 @@ const Allcourses = () => {
             <Nav></Nav>
 
              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
-            mx-20 '>
+            mx-20'>
                  {
                      Coursescards.map(courses  => <Allcourse key={courses._id} courses={courses} ></Allcourse> )
                  }
