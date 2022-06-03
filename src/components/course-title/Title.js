@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Title.css'
 import TitleCard from './TitleCard';
 import Teacherfeature from '../Teacher feature/Teacherfeature';
+import { useNavigate } from 'react-router-dom';
 
 
 const Title = () => {
@@ -12,6 +13,9 @@ const Title = () => {
             .then(res => res.json())
             .then(data => setCoursecard(data))
     }, [])
+
+//    navigate handel
+     const navigate = useNavigate()    
 
 
     return (
@@ -35,7 +39,7 @@ const Title = () => {
 
             {/* teacher feature start here */}
             <div className='text-left mt-20 mx-20'>
-            <button className='st '>See more.. </button>
+            <button onClick={()=> navigate('/allcourses')} className='st'>See more.. </button>
             </div>
         </div>
 

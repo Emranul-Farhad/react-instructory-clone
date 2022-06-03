@@ -17,6 +17,8 @@ import Profiledetails from './Pages/Dashboard/Profile/Profiledetails';
 import Mycourses from './components/My courses/Mycourses';
 import Courseupload from './components/Courseupload/Courseupload';
 import Takereview from './components/Take Review/Takereview';
+import Chekout from './components/Chekoutpage/Chekout';
+import Allcourses from './components/All courses/Allcourses';
 
 
 
@@ -28,6 +30,8 @@ function App() {
     <div className="App">     
      <Routes>
        <Route path='/' element={<Hero></Hero>} ></Route>
+       <Route path='chekout/:id' element={<Chekout></Chekout>} ></Route>
+       <Route path='/allcourses' element={<Allcourses></Allcourses>} ></Route>
        <Route path='/login' element={<Login></Login>} ></Route>
        <Route path='/signin' element={<Signin></Signin>} ></Route>
       <Route path='/courses' element={<Mycourses></Mycourses>} ></Route>
