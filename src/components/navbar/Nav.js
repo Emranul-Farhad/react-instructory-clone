@@ -28,8 +28,12 @@ const Nav = () => {
     <div>
       <nav class="navbar navbar-expand-lg navbar-light" style={  
         pathname.includes('/login') ?  {background: `url(${nav})`, padding: "5px ,15px 5px" } : {clasName : ""} &&
+
         pathname.includes('/signin') ?  {background: `url(${nav})`, padding: "5px ,15px 5px" } : {clasName : ""} &&
-        pathname.includes('/courses') ?  {background: `url(${nav})`,} : {clasName : ""}
+
+        pathname.includes('/courses') ?  {background: `url(${nav})`,} : {clasName : ""} &&
+  
+        pathname.includes('/uploadcourses') ?  {background: `url(${nav})`,} : {clasName : ""} 
       }>
         <div class="container-fluid mt-3">
           <a className="navbar-brand logo" href="/"> <img className='fluid' width={200} src="https://instructory.net/assets/images/logo-new-white.png" alt="" /> </a>
@@ -49,7 +53,7 @@ const Nav = () => {
 
                 <li title=' MY courses' className='mt-2 mr-2 text-2xl px-2 text-white'> <NavLink to='/courses'> <BsCollectionPlayFill></BsCollectionPlayFill>  </NavLink> </li>
 
-                <li title='course Upload' className='mt-1 mr-2 text-3xl px-2 text-white'> <NavLink to='/'> <BiCloudUpload></BiCloudUpload>  </NavLink> </li>
+                <li title='course Upload' className='mt-1 mr-2 text-3xl px-2 text-white'> <NavLink to='/uploadcourses'> <BiCloudUpload></BiCloudUpload>  </NavLink> </li>
 
 
                 <li title='Blogs' className=' mt-2 mr-3 px-2 text-2xl text-white'>  <NavLink to='/'>

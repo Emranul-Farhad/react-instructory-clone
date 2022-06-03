@@ -15,6 +15,7 @@ import Admins from './Pages/Dashboard/Admins/Admins';
 import Profile from './Pages/Dashboard/Profile/Profile';
 import Profiledetails from './Pages/Dashboard/Profile/Profiledetails';
 import Mycourses from './components/My courses/Mycourses';
+import Courseupload from './components/Courseupload/Courseupload';
 
 
 
@@ -29,6 +30,8 @@ function App() {
        <Route path='/login' element={<Login></Login>} ></Route>
        <Route path='/signin' element={<Signin></Signin>} ></Route>
       <Route path='/courses' element={<Mycourses></Mycourses>} ></Route>
+      <Route path='/uploadcourses' element={<Courseupload></Courseupload>} ></Route>
+
 
        <Route path='/dashboard' element={<Dashboard></Dashboard>} >
        <Route index element={<Myorders></Myorders> } ></Route>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 
 
 
@@ -21,10 +22,14 @@ const Users = () => {
         })
             .then(res => {
                 if (res.status === 401) {
-                    console.log("sorry");
-                    alert("You cannot make a admin ")
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'You cannot make admin!',
+                       
+                      })
                 }
-                res.json()
+                return res.json()
             })
             .then(data => {
                 console.log(data, "adj");
