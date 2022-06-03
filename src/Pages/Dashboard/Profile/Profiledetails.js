@@ -16,7 +16,10 @@ const Profiledetails = () => {
         <div className='bg-[#FBFBFB] w-[100%] '>
             <h6>Lo .</h6>
 
-            <div className='row mt-20 shdow-2xl bg-[#fff] shadow-2xl p-10 mx-[200px] '>
+            <div  data-aos="zoom-out" data-aos-offset="200"
+    data-aos-delay="10"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out" className='row mt-20 shdow-2xl bg-[#fff] shadow-2xl p-10 mx-[200px] '>
                 <div className='col-lg-8'>
                     <div className='d-flex'>
                         <div className='w-[300px] h-[300px] '>

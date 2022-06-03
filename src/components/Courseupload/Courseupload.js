@@ -1,9 +1,39 @@
 import React from 'react';
 import Nav from '../navbar/Nav';
 import { AiFillCheckCircle } from 'react-icons/ai'
-import {RiProfileFill} from 'react-icons/ri'
+import { RiProfileFill } from 'react-icons/ri'
+import { useForm } from "react-hook-form";
+
+
+
 
 const Courseupload = () => {
+
+    // react hook form
+    const { register, formState: { errors }, handleSubmit } = useForm();
+
+    //    imagebb api key
+    const imagekey = '3362cfddeacc2a6837eed7c9e23636a9'
+
+    // hnadel react hook form submit
+    const onSubmit = data => {
+        console.log(data);
+        const thumbnail = data.image[0]
+        console.log( thumbnail,data.image[0]);
+        const formData = new FormData();
+        formData.append('image', thumbnail);
+        const url = `https://api.imgbb.com/1/upload?key=${imagekey}`
+     
+        fetch(url, {
+            method: 'POST',
+            body: formData ,
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+    }
+
 
     return (
         <div className='bg-[#FbFbFb]'>
@@ -11,37 +41,47 @@ const Courseupload = () => {
             <div className='flex flex-col  lg:flex-row justify-end mx-20 mt-20'>
                 <div className='basis-2/4 '>
                     <div class="card card-compact w-96 bg-base-100 shadow-xl">
-                        <h6 className='font-bold text-[#0076a3]'>Upload your Thumbnail</h6>
-                        <figure>
-                        <label for='images' > <RiProfileFill className='text-8xl rounded-md cursor-pointer' ></RiProfileFill> </label>
-                        <input className='d-none invisible' id='images' type="file" placeholder='aaa'/>
-                        </figure>
+                        <h6 className='mt-3 font-bold text-[#0076a3]'>Upload your Thumbnail</h6>
 
-                        <div class="card-body bg-[#ebe2e28e] mt-3">
-                            {/* input taking here */}
-                            <h6 className=' font-bold  text-[#0076a3] text-left mx-3 mb-2 '> Your Name </h6>
-                        <input type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
-                             input-bordered input-primary w-full max-w-xs mb-2" 
-                             />
-                        <h6 className='text-[#0076a3] font-bold text-left mx-3 mb-2'>Course Name </h6>
-                        <input type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
-                             input-bordered input-primary w-full max-w-xs" 
-                             />
-                            <h6 className='text-[#0076a3] font-bold text-left mx-3 mb-2 mt-2'>Course price </h6>
-                        <input type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
-                             input-bordered input-primary w-full max-w-xs" 
-                             />
-                             <h6 className='text-[#0076a3] font-bold text-left mx-3 mt-3'> Course description </h6>
-                             <textarea className='mt-2 supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
-                             input-bordered input-primary w-full max-w-xs' name="" id="" cols="30"
-                              rows="10"></textarea>
+                        {/* input taking satrt here */}
+                        <form onSubmit={handleSubmit(onSubmit)}>
 
-                            <div class="card-actions justify-end">
-                                <button class="btn btn-primary">Buy Now</button>
+                            <figure>
+                                <label for='images' > <RiProfileFill className='text-8xl rounded-md cursor-pointer' ></RiProfileFill> </label>
+                                <input {...register("image")} className='d-none invisible' id='images' type="file" placeholder='aaa' />
+                            </figure>
+
+                            <div class="card-body bg-[#ebe2e28e] mt-3">
+
+                                <h6 className=' font-bold  text-[#0076a3] text-left mx-3 mb-2 '> Your Name </h6>
+                                <input {...register("name")} type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                             input-bordered input-primary w-full max-w-xs mb-2"
+                                />
+                                <h6 className='text-[#0076a3] font-bold text-left mx-3 mb-2'>Course Name </h6>
+                                <input {...register("coursename")} type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                             input-bordered input-primary w-full max-w-xs"
+                                />
+                                <h6 className='text-[#0076a3] font-bold text-left mx-3 mb-2 mt-2'>Course price </h6>
+                                <input {...register("courseprice")} type="number" min={1} placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                             input-bordered input-primary w-full max-w-xs"
+                                />
+                                <h6 className='text-[#0076a3] font-bold text-left mx-3 mt-3'> Course description </h6>
+
+                                <textarea {...register("describe")} className='mt-2 supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                             input-bordered input-primary w-full max-w-xs' cols="30"
+                                    rows="10">
+
+                                </textarea>
+
+                                <input type="submit" className='bg-[#FF4669] p-3 rounded-md mt-3 w-full' />
+
                             </div>
-                        </div>
+
+
+                        </form>
                     </div>
                 </div>
+                {/* details about of curses */}
                 <div className='bg-[#Fff] border-1 hover:shadow-2xl  basis-3/4 mt-10 lg:mt-0'>
                     <div className='container'>
                         <div className='flex mx-10 mt-4'>
@@ -75,7 +115,7 @@ const Courseupload = () => {
                             <AiFillCheckCircle className='text-[#0076a3] font-extrabold text-2xl mr-3'></AiFillCheckCircle>
                             <h6 className='text-[#444]  font-serif'> We can make your teaser video if you can come to our office</h6>
                         </div>
-                       
+
                         <div className='flex mx-10 mt-4'>
                             <AiFillCheckCircle className='text-[#0076a3] font-extrabold text-2xl mr-3'></AiFillCheckCircle>
                             <h6 className='text-[#444]  font-serif text-left'> We will prioritize your course at our bigger events like competitions, festivals, admission fairs, etc. based on your activities.</h6>
@@ -92,40 +132,3 @@ const Courseupload = () => {
 export default Courseupload;
 
 
-
-
-{/* <div className='flex mx-10 mt-4'>
-<AiFillCheckCircle className='text-[#0076a3] font-extrabold text-2xl mr-3'></AiFillCheckCircle>
-<h6 className='text-[#444] font-bold font-serif'> Instructor: 42.5% | Instructory: 57.5%</h6>
-</div>
-<div className='flex mx-10 mt-4'>
-<AiFillCheckCircle className='text-[#0076a3] font-extrabold text-2xl mr-3'></AiFillCheckCircle>
-<h6 className='text-[#444] font-bold font-serif'>Social media announcement or teaser </h6>
-</div>
-<div className='flex mx-10 mt-4 text-left'>
-<AiFillCheckCircle className='text-[#0076a3] font-extrabold text-2xl mr-3 text-left'></AiFillCheckCircle>
-<h6 className='text-left text-[#444] font-bold font-serif'> Social media post</h6>
-</div>
-<div className='flex mx-10 mt-4'>
-<AiFillCheckCircle className='text-[#0076a3] font-extrabold text-2xl mr-3'></AiFillCheckCircle>
-<h6 className='text-[#444] font-bold font-serif'>We will do Paid marketing like FB Boost, Bulk SMS etc. </h6>
-</div>
-<div className='flex mx-10 mt-4'>
-<AiFillCheckCircle className='text-[#0076a3] font-extrabold text-2xl mr-3'></AiFillCheckCircle>
-<h6 className='text-[#444] font-bold font-serif'> promote to 50k+ audience</h6>
-</div><div className='flex mx-10 mt-4'>
-<AiFillCheckCircle className='text-[#0076a3] font-extrabold text-2xl mr-3'></AiFillCheckCircle>
-<h6 className='text-[#444] font-bold font-serif'>You can take Live session on our FB page/group </h6>
-</div>
-<div className='flex mx-10 mt-4'>
-<AiFillCheckCircle className='text-[#0076a3] font-extrabold text-2xl mr-3'></AiFillCheckCircle>
-<h6 className='text-[#444] font-bold font-serif'>Private group chat with Instructory team to get special support and updates </h6>
-</div>
-<div className='flex mx-10 mt-4'>
-<AiFillCheckCircle className='text-[#0076a3] font-extrabold text-2xl mr-3'></AiFillCheckCircle>
-<h6 className='text-[#444] font-bold font-serif'> We can make your teaser video if you can come to our office</h6>
-</div>
-<div className='flex mx-10 mt-4'>
-<AiFillCheckCircle className='text-[#0076a3] font-extrabold text-2xl mr-3'></AiFillCheckCircle>
-<h6 className='text-[#444] font-bold font-serif'> We will prioritize your course at our bigger events like competitions, festivals, admission fairs, etc. based on your activities.</h6>
-</div> */}
