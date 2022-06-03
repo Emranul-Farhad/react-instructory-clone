@@ -36,11 +36,13 @@ const Mycourses = () => {
 
                                 <h6 className='text-left mx-10 mt-3 font-bold text-[#ababab] '>
                                     <span> You are starting of the Course! fdfdsfdff  Continue your learning </span>  </h6>
-
-                                <div className='text-left'>
-
+                                    
+                                <div className='text-left mt-3'>               
+                                   <button className='mx-10 mt-2 text-[#0076a3] rounded-md font-bold'>
+                                    Give review</button>
+                                </div>
+                                <div className='text-left mt-3'>               
                                    <button className='bg-[#ff4669] w-20 h-10 mx-10 mt-3 text-white rounded-md font-bold'>aaa</button>
-
                                 </div>
 
                             </div>
