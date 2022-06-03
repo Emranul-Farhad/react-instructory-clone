@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Nav from '../navbar/Nav';
 
 
@@ -6,7 +7,8 @@ import Nav from '../navbar/Nav';
 
 const Mycourses = () => {
 
-    // chakra ui
+    // cnavigate handel
+     const navigate = useNavigate()
   
 
     return (
@@ -38,7 +40,7 @@ const Mycourses = () => {
                                     <span> You are starting of the Course! fdfdsfdff  Continue your learning </span>  </h6>
                                     
                                 <div className='text-left mt-3'>               
-                                   <button className='mx-10 mt-2 text-[#0076a3] rounded-md font-bold'>
+                                   <button onClick={()=> navigate('/giverivew')} className='mx-10 mt-2 text-[#0076a3] rounded-md font-bold'>
                                     Give review</button>
                                 </div>
                                 <div className='text-left mt-3'>               

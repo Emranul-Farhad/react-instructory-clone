@@ -16,6 +16,7 @@ import Profile from './Pages/Dashboard/Profile/Profile';
 import Profiledetails from './Pages/Dashboard/Profile/Profiledetails';
 import Mycourses from './components/My courses/Mycourses';
 import Courseupload from './components/Courseupload/Courseupload';
+import Takereview from './components/Take Review/Takereview';
 
 
 
@@ -31,7 +32,7 @@ function App() {
        <Route path='/signin' element={<Signin></Signin>} ></Route>
       <Route path='/courses' element={<Mycourses></Mycourses>} ></Route>
       <Route path='/uploadcourses' element={<Courseupload></Courseupload>} ></Route>
-
+      <Route path='/giverivew' element={<Takereview></Takereview>} ></Route>
 
        <Route path='/dashboard' element={<Dashboard></Dashboard>} >
        <Route index element={<Myorders></Myorders> } ></Route>

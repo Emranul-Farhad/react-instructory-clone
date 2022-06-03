@@ -33,7 +33,9 @@ const Nav = () => {
 
         pathname.includes('/courses') ?  {background: `url(${nav})`,} : {clasName : ""} &&
   
-        pathname.includes('/uploadcourses') ?  {background: `url(${nav})`,} : {clasName : ""} 
+        pathname.includes('/uploadcourses') ?  {background: `url(${nav})`,} : {clasName : ""} &&
+
+        pathname.includes('/giverivew') ?  {background: `url(${nav})`,} : {clasName : ""} 
       }>
         <div class="container-fluid mt-3">
           <a className="navbar-brand logo" href="/"> <img className='fluid' width={200} src="https://instructory.net/assets/images/logo-new-white.png" alt="" /> </a>
