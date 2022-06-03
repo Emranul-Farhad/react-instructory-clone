@@ -1,20 +1,41 @@
 import React from 'react';
 import Nav from '../navbar/Nav';
 import { AiFillCheckCircle } from 'react-icons/ai'
-
+import {RiProfileFill} from 'react-icons/ri'
 
 const Courseupload = () => {
 
     return (
-        <div>
+        <div className='bg-[#FbFbFb]'>
             <Nav></Nav>
             <div className='flex flex-col  lg:flex-row justify-end mx-20 mt-20'>
                 <div className='basis-2/4 '>
                     <div class="card card-compact w-96 bg-base-100 shadow-xl">
-                        <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
-                        <div class="card-body">
-                            <h2 class="card-title">Shoes!</h2>
-                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <h6 className='font-bold text-[#0076a3]'>Upload your Thumbnail</h6>
+                        <figure>
+                        <label for='images' > <RiProfileFill className='text-8xl rounded-md cursor-pointer' ></RiProfileFill> </label>
+                        <input className='d-none invisible' id='images' type="file" placeholder='aaa'/>
+                        </figure>
+
+                        <div class="card-body bg-[#ebe2e28e] mt-3">
+                            {/* input taking here */}
+                            <h6 className=' font-bold  text-[#0076a3] text-left mx-3 mb-2 '> Your Name </h6>
+                        <input type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                             input-bordered input-primary w-full max-w-xs mb-2" 
+                             />
+                        <h6 className='text-[#0076a3] font-bold text-left mx-3 mb-2'>Course Name </h6>
+                        <input type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                             input-bordered input-primary w-full max-w-xs" 
+                             />
+                            <h6 className='text-[#0076a3] font-bold text-left mx-3 mb-2 mt-2'>Course price </h6>
+                        <input type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                             input-bordered input-primary w-full max-w-xs" 
+                             />
+                             <h6 className='text-[#0076a3] font-bold text-left mx-3 mt-3'> Course description </h6>
+                             <textarea className='mt-2 supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                             input-bordered input-primary w-full max-w-xs' name="" id="" cols="30"
+                              rows="10"></textarea>
+
                             <div class="card-actions justify-end">
                                 <button class="btn btn-primary">Buy Now</button>
                             </div>

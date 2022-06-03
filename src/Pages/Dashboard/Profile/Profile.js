@@ -14,7 +14,7 @@ const Profile = () => {
                 <div className='basis-2/4' >
                     <div>
                         <label for='images' > <CgProfile className='text-8xl rounded-md ' ></CgProfile> </label>
-                        <input className='d-none invisible' id='images' type="file" placeholder='aaa' />
+                        <input className='d-none invisible' id='images' type="file" placeholder='aaa'/>
                     </div>
                     <div className='flex justify-center items-center mt4 '>
                         <label> <MdEmail className='text-3xl mr-2'></MdEmail></label>
