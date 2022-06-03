@@ -26,7 +26,7 @@ const Reviewscard = ({ cardinfo }) => {
 
                             <h6 className='text-left font-bold  mt-5 mb-2 text-[#4EC3BB]'> Name : {name} </h6>
                             <h6 className='text-left font-bold  text-[#4EC3BB]'> From : {from} </h6>
-                            {/* <Rating name="read-only" value={value} readOnly /> */}
+                           
                         </div>
                     </div>
 

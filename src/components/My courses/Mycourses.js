@@ -42,6 +42,7 @@ const Mycourses = () => {
                                 <div className='text-left mt-3'>               
                                    <button onClick={()=> navigate('/giverivew')} className='mx-10 mt-2 text-[#0076a3] rounded-md font-bold'>
                                     Give review</button>
+                                    
                                 </div>
                                 <div className='text-left mt-3'>               
                                    <button className='bg-[#ff4669] w-20 h-10 mx-10 mt-3 text-white rounded-md font-bold'>aaa</button>
