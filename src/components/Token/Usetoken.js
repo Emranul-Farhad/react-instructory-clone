@@ -26,7 +26,12 @@ const Usetoken = user => {
                 body: JSON.stringify(userinfo),
             })
                 .then(res => res.json())
-                .then(data => console.log(data, "get from here"))
+                .then(data => {
+                    const token = data.token;
+                    console.log(token);
+                    localStorage.setItem('coursetoken' , token )
+                    setToken(token)
+                    console.log(data, "get from here")})
         }
     }, [user])
 

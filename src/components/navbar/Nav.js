@@ -19,6 +19,7 @@ const Nav = () => {
   //  logout
   const logout = () => {
     signOut(auth);
+    localStorage.removeItem("coursetoken")
   };
 
   //  cpath name handel
