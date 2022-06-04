@@ -17,6 +17,15 @@ const Managecourses = () => {
     }, [])
 
 
+    // delete courses handel
+     const deletecourse = (id)=> {
+         
+         const url = `http://localhost:8000/delete/${id}`
+         console.log(url)
+     }
+
+
+
     return (
         <div>
 
@@ -44,7 +53,7 @@ const Managecourses = () => {
                                         <td> {courses.name} </td>
                                         <td> {courses.courseName} </td>
                                         <td> {courses.price} </td>
-                                        <td>  <button className='btn btn-primary bg-gradient-to-r from-[#00A99D] to-[#0898D7] text-white font-bold rounded-md'> delete </button> </td>
+                                        <td>  <button onClick={()=> deletecourse(`${courses?._id}`)} className='btn btn-primary bg-gradient-to-r from-[#00A99D] to-[#0898D7] text-white font-bold rounded-md'> delete </button> </td>
                                     </tr>
                                 )
                             }
