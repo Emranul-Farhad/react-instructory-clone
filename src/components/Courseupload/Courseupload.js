@@ -43,7 +43,8 @@ const Courseupload = () => {
                 console.log(courseinfo, "all info");
                 fetch('http://localhost:8000/courseend', {
                     method: "POST",
-                    headers: {                    
+                    headers: { 
+                     'authorization' : `Bearer ${localStorage.getItem("coursetoken")}`,                   
                     'Content-Type': 'application/json' ,              
                     },
                     body: JSON.stringify(courseinfo),
