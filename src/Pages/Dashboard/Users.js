@@ -17,11 +17,17 @@ const Users = () => {
     // https://shielded-chamber-79155.herokuapp.com/users/admin/${email}
     //    make admin handel
     const makeadmin = (email) => {
-        fetch(`http://localhost:8000/users/admin/${email}`, {
-            method: "PUT"
-        })
+        const url = `http://localhost:8000/users/admin/${email}`
+        console.log(url);
+        fetch(url, {
+            method: "PUT",
+            headers: { 
+                'authorization' : `Bearer ${localStorage.getItem("coursetoken")}`,                   
+               'Content-Type': 'application/json' ,              
+               },
+          })
             .then(res => {
-                if (res.status === 401) {
+                if (res.status === 403) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
@@ -32,6 +38,14 @@ const Users = () => {
                 return res.json()
             })
             .then(data => {
+                if(data.modifiedCount > 0){
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Succesfully addeded',
+                        text: `${email}`,
+                       
+                      })
+                }
                 console.log(data, "adj");
             })
     }
@@ -70,7 +84,7 @@ const Users = () => {
 
                                     {userd?.role !== "admin" && <td>
 
-                                        <button onClick={() => makeadmin(userd.email)} className='btn btn-primary bg-gradient-to-r from-[#00A99D] to-[#0898D7] text-white font-bold rounded-md'> make admin</button>
+                                        <button onClick={() => makeadmin(userd?.email)} className='btn btn-primary bg-gradient-to-r from-[#00A99D] to-[#0898D7] text-white font-bold rounded-md'> make admin</button>
                                     </td>
 
                                     }

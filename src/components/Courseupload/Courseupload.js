@@ -59,7 +59,8 @@ const Courseupload = () => {
                    return res.json()})
                 .then(data =>{
                     if(data.insertedId){
-                       return ( Swal.fire({
+                       return ( 
+                           Swal.fire({
                             icon: 'success',
                             title: 'Course upload successfully',
                             text: 'Congratulations',
