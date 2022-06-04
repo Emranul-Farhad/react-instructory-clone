@@ -17,6 +17,23 @@ const Allcourses = () => {
             .then(data => setCoursescard(data))
     }, [])
 
+
+    // page count haneling
+   const [count , setCount] = useState(0)
+
+   useEffect(()=> {
+       fetch('http://localhost:8000/counts')
+       .then(res => res.json())
+       .then(data => {
+        const number = data.coursescounts;
+        const pages = Math.ceil(number/3)   
+        setCount(pages)
+    })
+   },[])
+   
+
+
+
     return (
         <div>
             <Nav></Nav>
@@ -25,6 +42,13 @@ const Allcourses = () => {
             mx-20'>
                  {
                      Coursescards.map(courses  => <Allcourse key={courses._id} courses={courses} ></Allcourse> )
+                 }
+             </div>
+
+             <div className="mt-10">
+                 {
+                     [...Array(count).keys()]
+                     .map( pagenumber => <button className='border-1 ms-2 border-[#04adf0] font-bold h-7 w-10' > {pagenumber +1} </button>  )
                  }
              </div>
         </div>
