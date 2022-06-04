@@ -19,6 +19,7 @@ import Courseupload from './components/Courseupload/Courseupload';
 import Takereview from './components/Take Review/Takereview';
 import Chekout from './components/Chekoutpage/Chekout';
 import Allcourses from './components/All courses/Allcourses';
+import Managecourses from './components/Manage all Courses/Managecourses';
 
 
 
@@ -44,6 +45,7 @@ function App() {
         <Route path='admins' element={<Admins></Admins> } ></Route>
         <Route path='profileedit' element={<Profile></Profile>} ></Route>
         <Route path='profile' element={<Profiledetails></Profiledetails>} ></Route>
+        <Route path='managecourses' element={<Managecourses></Managecourses>} ></Route>
        {/* <Route path='profile' element={<Profileshow></Profileshow>} ></Route> */}
 
        </Route>

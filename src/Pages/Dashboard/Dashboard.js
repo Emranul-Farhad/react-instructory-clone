@@ -5,6 +5,7 @@ import {FiUsers} from "react-icons/fi"
 import {FcPackage} from 'react-icons/fc'
 import {CgProfile} from 'react-icons/cg'
 import './Dashboard.css'
+import {FaProductHunt} from 'react-icons/fa'
 
 
 const Dashboard = () => {
@@ -27,6 +28,11 @@ const Dashboard = () => {
 <div className='ms-2 flex flex-row justify-center items-center text-white font-bold uppercase mt-5 bg-[#0076a3]'>
 <FcPackage className='text-3xl mr-1'></FcPackage>
 <NavLink to='/dashboard' >All orders</NavLink>
+</div>
+
+<div className='ms-2 flex flex-row justify-center items-center text-white font-bold uppercase mt-5 bg-[#0076a3]'>
+<FaProductHunt className='text-3xl mr-1'></FaProductHunt>
+<NavLink to='/dashboard/managecourses' >Manage Courses</NavLink>
 </div>
 
 <div className='ms-2 flex flex-row justify-center items-center text-white font-bold uppercase mt-5 bg-[#0076a3]'>
