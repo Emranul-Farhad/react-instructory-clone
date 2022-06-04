@@ -34,18 +34,21 @@ const Profiledetails = () => {
 
 
     return (
-        <div className='bg-[#FBFBFB] w-[100%] mx-20'>
+        <div className='bg-[#FBFBFB] w-[100%]'>
             <h6 className='text-4xl font-bold font-serif pt-2'> Welcome <span className='text-[#0076a3] uppercase'>{info?.username}</span> to your profile  👏</h6>
             <div data-aos="zoom-out" data-aos-offset="200"
                 data-aos-delay="10"
                 data-aos-duration="1000"
-                data-aos-easing="ease-in-out" className='row mt-20 shdow-2xl bg-[#fff] shadow-2xl p-10 mx-[200px] '>
+                data-aos-easing="ease-in-out" className='row mt-20 shdow-2xl bg-[#fff] shadow-2xl p-10
+                 mx-[240px] '>
                 <div className='col-lg-8'>
                     <div className='d-flex'>
                         <div className='w-[300px] h-[300px] '>
-                            <img className='flex-shrink-0 rounded-[50%] ' src="https://instructory-aws-storage.s3.us-west-1.amazonaws.com/users/2am/profile_105225611.jpg" alt="" />
+
+                           {info?.img ? <img className='flex-shrink-0 rounded-[50%] w-[92%]' src={info?.img} alt="" /> :  <img className='flex-shrink-0 rounded-[50%] ' src="https://instructory-aws-storage.s3.us-west-1.amazonaws.com/users/2am/profile_105225611.jpg" alt="" />}
+
                             <h6 className='uppercase mt-3 mr-10 text-2xl font-bold font-serif'>
-                                {info?.username} </h6>
+                            {info?.username} </h6>
                         </div>
                         <div className='mt-3'>
 
@@ -56,22 +59,22 @@ const Profiledetails = () => {
 
                             <div className='flex align-items-center'>
                                 <h6 className='text-left text-2xl '>  <FaStar className='text-[#0076a3] mt-4'></FaStar> </h6>
-                                <h6 className='mx-4 font-bold mt-3'> 0 Star Ratings </h6>
+                                <h6 className='mx-3 font-bold mt-3'> 0 Star Ratings </h6>
                             </div>
 
                             <div className='flex align-items-center'>
                                 <h6 className='text-left text-2xl '>  <FaPlayCircle className='text-[#0076a3] mt-4' ></FaPlayCircle> </h6>
-                                <h6 className='mx-4 font-bold mt-3'> 0 Courses </h6>
+                                <h6 className='mx-3 font-bold mt-3'> 0 Courses </h6>
                             </div>
 
                             <div className='flex align-items-center'>
                                 <h6 className='text-left text-2xl '>  <ImLocation2 className='text-[#0076a3] mt-4' ></ImLocation2> </h6>
-                                <h6 className='mx-4 font-bold mt-3'> {info?.location} </h6>
+                                <h6 className='mx-3 font-bold mt-3'> {info?.location} </h6>
                             </div>
 
                             <div className='flex'>
                                 <h6 className='text-left text-2xl '>  <GiLevelFourAdvanced className='text-[#0076a3] mt-4' ></GiLevelFourAdvanced> </h6>
-                                <h6 className='mx-4 font-bold mt-4'> Level 0 instructor </h6>
+                                <h6 className='mx-2 font-bold mt-4'> Level 0 instructor </h6>
                             </div>
 
                         </div  >
@@ -86,7 +89,7 @@ const Profiledetails = () => {
 
 
             <div>
-                <div class="card w-96 bg-base-100 shadow-xl mx-[200px] mt-10 ">
+                <div class="card w-96 bg-base-100 shadow-xl mx-[240px] mt-10 ">
                     <div className='h-5 bg-[#1aa2cf] p-4' >
                         <h6 className='text-white font-extrabold mt-[-10px]'> Educatiuon & others 🎓</h6>
                     </div>
