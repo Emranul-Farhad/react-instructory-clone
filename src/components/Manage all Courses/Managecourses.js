@@ -21,37 +21,16 @@ const Managecourses = () => {
         <div>
 
             <div>
-                <div class="stack">
-                    <div class="card shadow-md bg-primary text-primary-content">
-                        <div class="card-body">
-                            <h2 class="card-title">Notification 1</h2>
-                            <p>You have 3 unread messages. Tap here to see.</p>
-                        </div>
-                    </div>
-                    <div class="card shadow bg-primary text-primary-content">
-                        <div class="card-body">
-                            <h2 class="card-title">Notification 2</h2>
-                            <p>You have 3 unread messages. Tap here to see.</p>
-                        </div>
-                    </div>
-                    <div class="card shadow-sm bg-primary text-primary-content">
-                        <div class="card-body">
-                            <h2 class="card-title">Notification 3</h2>
-                            <p>You have 3 unread messages. Tap here to see.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div>
                 <div class="overflow-x-auto mx-[12%] border-1">
                     <table class="table table-zebra w-full">
 
                         <thead>
                             <tr>
                                 <th>number</th>
+                                <th>Instructor Name</th>
                                 <th>Courses Name</th>
                                 <th>Price</th>
+                                <th>Status</th>
                                 {/* <th>Favorite Color</th> */}
                             </tr>
                         </thead>
@@ -63,7 +42,9 @@ const Managecourses = () => {
                                     <tr>
                                         <th> {index + 1} </th>
                                         <td> {courses.name} </td>
+                                        <td> {courses.courseName} </td>
                                         <td> {courses.price} </td>
+                                        <td>  <button className='btn btn-primary bg-gradient-to-r from-[#00A99D] to-[#0898D7] text-white font-bold rounded-md'> delete </button> </td>
                                     </tr>
                                 )
                             }
