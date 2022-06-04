@@ -19,6 +19,12 @@ const Courseupload = () => {
     const onSubmit = data => {
         console.log(data);
         const thumbnail = data.image[0]
+        const courseinfo = {
+            price : data.courseprice,
+            courseName: data.coursename,
+            name:data.name,
+            img : ''
+        };
         console.log( thumbnail,data.image[0]);
         const formData = new FormData();
         formData.append('image', thumbnail);
@@ -30,7 +36,21 @@ const Courseupload = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('Success:', data);
+                if(data) { 
+                const img = data.data.url
+                courseinfo.img = img
+                console.log(courseinfo, "all info");
+                fetch('http://localhost:8000/courseend', {
+                    method: "POST",
+                    headers: {                    
+                    'Content-Type': 'application/json' ,              
+                    },
+                    body: JSON.stringify(courseinfo),
+                })
+                .then(res => res.json())
+                .then(data => console.log(data, "course get from here"))
+                console.log('Success:', data , img);
+            }
             })
     }
 
