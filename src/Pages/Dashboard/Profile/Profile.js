@@ -35,8 +35,6 @@ const Profile = () => {
             username: data.username,
             img : ""
         }
-        console.log(userinfo)
-        console.log(image);
         const formData = new FormData();
         formData.append('image', image);
         const url = `https://api.imgbb.com/1/upload?key=${imagekey}`
@@ -53,7 +51,6 @@ const Profile = () => {
             const img = data.data.url
             userinfo.img = img
             const urls = `http://localhost:8000/profiles/${email}`
-            console.log(urls);
             fetch(urls,{
                 method :"PUT",
                 headers: {                    
@@ -65,8 +62,8 @@ const Profile = () => {
             .then(data => console.log(data))
             }
 
-            console.log(data)}) 
-        console.log(data)
+            }) 
+    
         
     }
 

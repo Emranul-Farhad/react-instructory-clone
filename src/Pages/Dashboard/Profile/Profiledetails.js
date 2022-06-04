@@ -1,16 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaUsers, FaStar, FaPlayCircle, FaPenNib } from 'react-icons/fa'
 import { ImLocation2 } from 'react-icons/im'
 import { GiLevelFourAdvanced } from 'react-icons/gi'
 import { useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import Profile from './Profile';
 import './Profile.css'
+import auth from '../../../Firekey/Firekey';
 
 
 const Profiledetails = () => {
 
-    // avigate to profile section
+    // navigate to profile section
     const navigate = useNavigate()
+
+    // user 
+     const [user] = useAuthState(auth)
+
+    //show user info from db that we will edit in profile section
+    const [info , setInfo] = useState({})
+    const email = user?.email
+    useEffect(()=> {
+        const url = `http://localhost:8000/userdata?email=${email}`
+       fetch(url,{
+           method : "GET",
+       }) 
+       .then(res => res.json())
+       .then(data => console.log(data))
+    },[email]) 
+
+
+
+
 
     return (
         <div className='bg-[#FBFBFB] w-[100%] '>
