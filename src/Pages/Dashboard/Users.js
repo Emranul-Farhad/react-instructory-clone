@@ -6,18 +6,18 @@ import Swal from 'sweetalert2';
 
 
 const Users = () => {
-
+    // "https://shielded-chamber-79155.herokuapp.com/users"
     const [usersd, setUsersd] = useState([])
     useEffect(() => {
-        fetch("https://shielded-chamber-79155.herokuapp.com/users")
+        fetch("http://localhost:8000/users")
             .then(res => res.json())
             .then(data => setUsersd(data))
     }, [usersd])
 
-
+    // https://shielded-chamber-79155.herokuapp.com/users/admin/${email}
     //    make admin handel
     const makeadmin = (email) => {
-        fetch(`https://shielded-chamber-79155.herokuapp.com/users/admin/${email}`, {
+        fetch(`http://localhost:8000/users/admin/${email}`, {
             method: "PUT"
         })
             .then(res => {

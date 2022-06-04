@@ -15,7 +15,8 @@ const Usetoken = user => {
         const email = user?.user?.email;
         const userinfo = {email:email}
         if (email) {
-            const url =`https://shielded-chamber-79155.herokuapp.com/usercollection/${email}`
+            // https://shielded-chamber-79155.herokuapp.com/usercollection/${email}
+            const url =`http://localhost:8000/usercollection/${email}`
             console.log(url);
             fetch(url, {
                 method: 'PUT', // or 'PUT'

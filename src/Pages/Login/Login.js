@@ -7,7 +7,8 @@ import Nav from '../../components/navbar/Nav';
 import './Login.css'
 import {FcGoogle} from 'react-icons/fc'
 import Swal from 'sweetalert2';
-
+import Usetoken from '../../components/Token/Usetoken'
+// import Usetoken from '../../components/Token/Usetoken';
 
 
 const Login = () => {
@@ -101,7 +102,9 @@ const [
 
 
  // navigate handel
- if (googleuser || signuser || suser ) {
+
+ const [token] = Usetoken(googleuser || signuser || suser)
+ if (token ) {
     navigate('/')
 } 
 
