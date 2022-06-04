@@ -23,19 +23,51 @@ const Profile = () => {
     // handel submit
     const onSubmit = data => {
         const image = data.image[0]
+        const userinfo = {
+            biography : data.biography,
+            skillf: data.skillf,
+            skillh: data.skillh,
+            skillt: data.skillt,
+            skillo : data.skillo,
+            hoby : data.hoby,
+            location: data.location,
+            profession: data.profession,
+            username: data.username,
+            img : ""
+        }
+        console.log(userinfo)
         console.log(image);
         const formData = new FormData();
         formData.append('image', image);
         const url = `https://api.imgbb.com/1/upload?key=${imagekey}`
+        console.log(url)
         console.log(url);
         fetch(url,{
             method : "POST",
             body : formData,
         })
         .then(res => res.json())
-        .then(data => console.log(data)) 
-        console.log(image)
+        .then(data => {
+            const email = user?.email
+            if(data){ 
+            const img = data.data.url
+            userinfo.img = img
+            const urls = `http://localhost:8000/profiles/${email}`
+            console.log(urls);
+            fetch(urls,{
+                method :"PUT",
+                headers: {                    
+                   'Content-Type': 'application/json' ,              
+                   },
+                body: JSON.stringify(userinfo),
+            })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            }
+
+            console.log(data)}) 
         console.log(data)
+        
     }
 
 
@@ -69,7 +101,7 @@ const Profile = () => {
                             <h6 className='text-3xl font-extrabold mb-5 text-[#0076a3]'> Your Informations </h6>
                             <div className='mb-4 flex items-center' >
                                 <label className='mr-10'> Name </label>
-                                <input  {...register("name")} type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                                <input  {...register("username")} type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
                              input-bordered input-primary w-full max-w-xs" />
                             </div>
                             {/*  */}
