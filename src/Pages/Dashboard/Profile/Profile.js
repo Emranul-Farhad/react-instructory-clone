@@ -1,11 +1,16 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { BsTelephoneFill } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg'
 import { MdEmail } from 'react-icons/md'
+import auth from '../../../Firekey/Firekey';
 
 
 
 const Profile = () => {
+
+    // user handel
+    const [user] = useAuthState(auth)
 
     return (
         <div className='bg-[#FBFBFB]'>
@@ -18,7 +23,7 @@ const Profile = () => {
                     </div>
                     <div className='flex justify-center items-center mt4 '>
                         <label> <MdEmail className='text-3xl mr-2'></MdEmail></label>
-                        <h6>Emranu@gamil.com</h6>
+                        <h6> {user?.email}</h6>
                     </div>
                     <div className='flex justify-center items-center mt-2 mr-10'>
                         <label> <BsTelephoneFill className='text-3xl ' ></BsTelephoneFill> </label>
@@ -58,8 +63,15 @@ const Profile = () => {
                             </div>
                             {/*  */}
                             <div className='flex items-center' >
-                                <label className='mr-10 flex items-center'> Job </label>
-                                <input type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                                <input type="text" placeholder="skill 1" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                             input-bordered input-primary w-full max-w-xs" />
+                                <input type="text" placeholder="skill 2" className="ms-2 supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                             input-bordered input-primary w-full max-w-xs" />
+                            </div>
+                            <div className='flex items-center mt-3' >
+                                <input type="text" placeholder="skill 3" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                             input-bordered input-primary w-full max-w-xs" />
+                                <input type="text" placeholder="skill 4" className="ms-2 supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
                              input-bordered input-primary w-full max-w-xs" />
                             </div>
                             {/*  */}

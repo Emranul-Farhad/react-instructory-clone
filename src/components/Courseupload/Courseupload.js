@@ -4,6 +4,8 @@ import { AiFillCheckCircle } from 'react-icons/ai'
 import { RiProfileFill } from 'react-icons/ri'
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
+import { signOut } from 'firebase/auth';
+import auth from '../../Firekey/Firekey';
 
 
 
@@ -49,25 +51,31 @@ const Courseupload = () => {
                     },
                     body: JSON.stringify(courseinfo),
                 })
-                .then(res => res.json())
+                .then(res => {
+                    if(res.status === 401 || res.status === 403 ){
+                        signOut(auth)
+                        localStorage.removeItem("coursetoken")
+                    } 
+                   return res.json()})
                 .then(data =>{
                     if(data.insertedId){
-                        Swal.fire({
+                       return ( Swal.fire({
                             icon: 'success',
                             title: 'Course upload successfully',
                             text: 'Congratulations',
                             
                           })
+                       )
                     }
                     else{
-                        Swal.fire({
+                        return (  Swal.fire({
                             icon: 'error',
                             title: 'failed !!',
                             text: 'Try again',                        
                           })
+                        )
                     }
-                    console.log(data, "course get from here")})
-                
+                    }) 
             }
             })
     }
