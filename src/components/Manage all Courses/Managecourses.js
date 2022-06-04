@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 
 
 
@@ -19,9 +20,49 @@ const Managecourses = () => {
 
     // delete courses handel
      const deletecourse = (id)=> {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if(result.isConfirmed){
+                const url = `http://localhost:8000/delete/${id}`
+               console.log(url)
+               fetch(url,{
+                   method : "DELETE",
+               })
+               .then(res => res.json())
+               .then(data=> {
+                console.log(data)
+                if(data.deletedCount > 0){
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'deleted done',
+                        text: ` deleted products ${id}`,
+                    })
+                    const deleted = Mangecourse.filter(m => m._id !== id)
+                    setManagecourse(deleted)
+                }  
+                else{
+                    return (
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'oops..!!',
+                            text: 'try again'
+                        })
+                    )
+                } 
+                })
+
+
+
+            }
+        })
          
-         const url = `http://localhost:8000/delete/${id}`
-         console.log(url)
      }
 
 
