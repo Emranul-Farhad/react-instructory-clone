@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
 import { BsTelephoneFill } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg'
 import { MdEmail } from 'react-icons/md'
@@ -12,14 +13,25 @@ const Profile = () => {
     // user handel
     const [user] = useAuthState(auth)
 
+  // react hook from
+   const { register, formState: { errors }, handleSubmit } = useForm();
+
+    // handel submit
+    const onSubmit = data => {
+        console.log(data)
+    }
+
+
     return (
         <div className='bg-[#FBFBFB]'>
             <h6 className='text-3xl text-[#00A99D] font-extrabold'> Edit your Profile !! </h6>
+            <form onSubmit={handleSubmit(onSubmit)}> 
             <div className='flex flex-col lg:flex-row  mx-[200px] mt-20' >
+                {/* info taking form here */}
                 <div className='basis-2/4' >
                     <div>
                         <label for='images' > <CgProfile className='text-8xl rounded-md ' ></CgProfile> </label>
-                        <input className='d-none invisible' id='images' type="file" placeholder='aaa'/>
+                        <input {...register("image")} className='d-none invisible' id='images' type="file" placeholder='aaa'/>
                     </div>
                     <div className='flex justify-center items-center mt4 '>
                         <label> <MdEmail className='text-3xl mr-2'></MdEmail></label>
@@ -40,51 +52,53 @@ const Profile = () => {
                             <h6 className='text-3xl font-extrabold mb-5 text-[#0076a3]'> Your Informations </h6>
                             <div className='mb-4 flex items-center' >
                                 <label className='mr-10'> Name </label>
-                                <input type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                                <input  {...register("name")} type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
                              input-bordered input-primary w-full max-w-xs" />
                             </div>
                             {/*  */}
                             <div className=' col-span-3 mb-5 flex items-center' >
                                 <h6 className='mr-10'> proffession </h6>
-                                <input type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                                <input  {...register("profession")} type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
                              input-bordered input-primary w-full max-w-xs " />
                             </div>
                             {/*  */}
                             <div className='mb-5 flex items-center' >
                                 <label className='mr-10'> Location </label>
-                                <input type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                                <input  {...register("location")} type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
                              input-bordered input-primary w-full max-w-xs" />
                             </div>
                             {/*  */}
                             <div className='mb-5 flex items-center' >
                                 <label className='mr-10'> Hobby </label>
-                                <input type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                                <input  {...register("hoby")} type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
                              input-bordered input-primary w-full max-w-xs" />
                             </div>
                             {/*  */}
                             <div className='flex items-center' >
-                                <input type="text" placeholder="skill 1" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                                <input  {...register("skillo")} type="text" placeholder="skill 1" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
                              input-bordered input-primary w-full max-w-xs" />
-                                <input type="text" placeholder="skill 2" className="ms-2 supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                                <input {...register("skillt")} type="text" placeholder="skill 2" className="ms-2 supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
                              input-bordered input-primary w-full max-w-xs" />
                             </div>
                             <div className='flex items-center mt-3' >
-                                <input type="text" placeholder="skill 3" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                                <input {...register("skillh")} type="text" placeholder="skill 3" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
                              input-bordered input-primary w-full max-w-xs" />
-                                <input type="text" placeholder="skill 4" className="ms-2 supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
+                                <input {...register("skillf")} type="text" placeholder="skill 4" className="ms-2 supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2
                              input-bordered input-primary w-full max-w-xs" />
                             </div>
                             {/*  */}
                             <div className='row-span-3 mt-5 flex  items-center' >
                                 <label className='mr-10 '> bio </label>
-                                <textarea  className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2 ms-1
-                             input-bordered input-primary w-full max-w-xs" name="" id="" cols="30" rows="10"></textarea>
+                                <textarea {...register("biography")} className="h-[50px] bg-[#FBFBFB] border-solid  p-2 ms-1
+                             input-bordered input-primary w-full max-w-xs" cols="30" rows="10"></textarea>
                             </div>
                             {/*  */}
+                            <input type="submit" className='bg-[#0076a3] p-3 rounded-md mt-4 text-white font-bold w-full' />
                         </div>
                     </div>
                 </div>
             </div>
+                </form>
         </div>
     );
 };
