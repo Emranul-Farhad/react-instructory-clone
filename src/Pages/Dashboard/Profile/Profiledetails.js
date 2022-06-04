@@ -7,7 +7,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import Profile from './Profile';
 import './Profile.css'
 import auth from '../../../Firekey/Firekey';
-
+import avatar from '../../../images/avatar.jpg'
 
 const Profiledetails = () => {
 
@@ -45,7 +45,7 @@ const Profiledetails = () => {
                     <div className='d-flex'>
                         <div className='w-[300px] h-[300px] '>
 
-                           {info?.img ? <img className='flex-shrink-0 rounded-[50%] w-[92%]' src={info?.img} alt="" /> :  <img className='flex-shrink-0 rounded-[50%] ' src="https://instructory-aws-storage.s3.us-west-1.amazonaws.com/users/2am/profile_105225611.jpg" alt="" />}
+                           {info?.img ? <img className='flex-shrink-0 rounded-[50%] w-[92%]' src={info?.img} alt="" /> :  <img className='flex-shrink-0 rounded-[50%] w-[92%]' src={avatar} alt="" />}
 
                             <h6 className='uppercase mt-3 mr-10 text-2xl font-bold font-serif'>
                             {info?.username} </h6>
