@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { BsTelephoneFill } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg'
+import { FcElectronics } from 'react-icons/fc';
 import { MdEmail } from 'react-icons/md'
 import auth from '../../../Firekey/Firekey';
 
@@ -16,8 +17,24 @@ const Profile = () => {
   // react hook from
    const { register, formState: { errors }, handleSubmit } = useForm();
 
+   //imagebb key 
+   const imagekey = '3362cfddeacc2a6837eed7c9e23636a9'
+
     // handel submit
     const onSubmit = data => {
+        const image = data.image[0]
+        console.log(image);
+        const formData = new FormData();
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?key=${imagekey}`
+        console.log(url);
+        fetch(url,{
+            method : "POST",
+            body : formData,
+        })
+        .then(res => res.json())
+        .then(data => console.log(data)) 
+        console.log(image)
         console.log(data)
     }
 
