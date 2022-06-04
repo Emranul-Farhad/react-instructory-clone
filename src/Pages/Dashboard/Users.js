@@ -18,7 +18,6 @@ const Users = () => {
     //    make admin handel
     const makeadmin = (email) => {
         const url = `http://localhost:8000/users/admin/${email}`
-        console.log(url);
         fetch(url, {
             method: "PUT",
             headers: { 
@@ -46,7 +45,7 @@ const Users = () => {
                        
                       })
                 }
-                console.log(data, "adj");
+                
             })
     }
 
