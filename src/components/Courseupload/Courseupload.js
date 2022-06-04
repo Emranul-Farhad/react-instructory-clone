@@ -3,6 +3,7 @@ import Nav from '../navbar/Nav';
 import { AiFillCheckCircle } from 'react-icons/ai'
 import { RiProfileFill } from 'react-icons/ri'
 import { useForm } from "react-hook-form";
+import Swal from 'sweetalert2';
 
 
 
@@ -48,8 +49,24 @@ const Courseupload = () => {
                     body: JSON.stringify(courseinfo),
                 })
                 .then(res => res.json())
-                .then(data => console.log(data, "course get from here"))
-                console.log('Success:', data , img);
+                .then(data =>{
+                    if(data.insertedId){
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Course upload successfully',
+                            text: 'Congratulations',
+                            
+                          })
+                    }
+                    else{
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'failed !!',
+                            text: 'Try again',                        
+                          })
+                    }
+                    console.log(data, "course get from here")})
+                
             }
             })
     }
