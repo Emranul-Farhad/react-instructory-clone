@@ -67,12 +67,20 @@ const Chekout = () => {
                         <div class="card-body">
                             <div className='flex justify-between'>
                                 <h6 className='text-[#444] text-1xl font-bold' >Course Price</h6>
-                                <div> <input className='border-none text-right bg-[#fff]' disabled  readOnly type="text" value={800} /> </div>
+                                <div> <input  className='text-[#444] text-1xl font-bold border-none text-right bg-[#fff]' disabled  readOnly type="text" value={course?.price} /> </div>
                             </div>
                             <div className='flex justify-between mt-3'>
                                 <h6 className='text-[#444] text-1xl font-bold' >Platform Charge</h6>
-                                <div> <h6 className='text-[#444] text-1xl font-bold' > :৳ 120  </h6> </div>
-                            </div> 
+                                <div>  <input className='text-[#444] text-1xl font-bold border-none text-right bg-[#fff]' disabled  readOnly type="text" value={120} />  </div>
+                            </div>
+                            <h6 className='text-left mt-4 p-0 text-[#444]'> ℹ️ This is for using platform and getting life time support </h6> 
+                            <hr  className='mt-4'/>
+                            <div className='flex justify-between mt-4'>
+                                <h6 className='text-[#444] text-[18px] font-bold' > Total Price </h6>
+                                <div>  <input className='text-[#444] text-1xl font-bold border-none text-right bg-[#fff]' disabled  readOnly type="text" value={120} />  </div>
+                            </div>
+                            <input className='w-full p-3 mt-5 rounded-md text-white font-bold  bg-[#FF4669]' type="submit" />
+                            <button className='w-full p-3 mt-4 rounded-md text-white font-bold  bg-[#0076a3]' > Cancel </button>
                             </div>
                     </div>
                 </div>
