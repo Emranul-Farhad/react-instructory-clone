@@ -20,6 +20,8 @@ import Takereview from './components/Take Review/Takereview';
 import Chekout from './components/Chekoutpage/Chekout';
 import Allcourses from './components/All courses/Allcourses';
 import Managecourses from './components/Manage all Courses/Managecourses';
+import Mycoursemap from './components/My courses/Mycoursemap';
+
 
 
 
@@ -35,7 +37,8 @@ function App() {
        <Route path='/allcourses' element={<Allcourses></Allcourses>} ></Route>
        <Route path='/login' element={<Login></Login>} ></Route>
        <Route path='/signin' element={<Signin></Signin>} ></Route>
-      <Route path='/courses' element={<Mycourses></Mycourses>} ></Route>
+      {/* <Route path='/mycourses' element={<Mycourses></Mycourses>} ></Route> */}
+     <Route path='/mycourses' element={<Mycoursemap></Mycoursemap>} ></Route>
       <Route path='/uploadcourses' element={<Courseupload></Courseupload>} ></Route>
       <Route path='/giverivew' element={<Takereview></Takereview>} ></Route>
 

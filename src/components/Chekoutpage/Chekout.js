@@ -10,6 +10,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Chekout = () => {
 
+    // user handel
+
     // navigate handel
     const navigate = useNavigate()
 
@@ -30,6 +32,8 @@ const Chekout = () => {
     const totalprice = event => {
         event.preventDefault();
         const courseinfo = {
+            name: course?.name,
+            courseName:course?.courseName,
             img: course?.img,
             price: event.target.price.value,
             fee: event.target.fee.value,
