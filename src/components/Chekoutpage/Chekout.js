@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { set } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import Nav from '../navbar/Nav';
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 const Chekout = () => {
 
+    // navigate handel
+    const navigate = useNavigate()
+
+    // user params handel
     const { id } = useParams()
 
     const [course, setCourse] = useState({})
@@ -21,16 +27,37 @@ const Chekout = () => {
 
 
     //  cart price send in db
-     const totalprice = event => {
+    const totalprice = event => {
         event.preventDefault();
         const courseinfo = {
-            img : course?.img,
-            price : event.target.price.value,
-            fee : event.target.fee.value,
-            total : event.target.total.value
+            img: course?.img,
+            price: event.target.price.value,
+            fee: event.target.fee.value,
+            total: event.target.total.value
         }
         console.log(courseinfo);
-     }
+        const url = `http://localhost:8000/checkout`
+        console.log(url);
+        fetch(url, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+              },
+            body: JSON.stringify(courseinfo),
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.insertedId){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Course buying successfully',
+                    text: 'Congratulations',
+                    
+                  })
+            }
+            console.log(data)})
+        console.log(courseinfo);
+    }
 
 
     return (
@@ -81,29 +108,29 @@ const Chekout = () => {
                     <div class="card w-96 bg-base-100 shadow-xl">
                         <div class="card-body">
 
-                            <form onSubmit={totalprice}> 
+                            <form onSubmit={totalprice}>
 
-                            <div className='flex justify-between'>
-                                <h6 className='text-[#444] text-1xl font-bold' >Course Price</h6>
-                                <div> <input name='price' className='text-[#444] text-1xl font-bold border-none text-right bg-[#fff]' disabled  readOnly type="text" value={course?.price} /> </div>
-                            </div>
-                            <div className='flex justify-between mt-3'>
-                                <h6 className='text-[#444] text-1xl font-bold' >Platform Charge</h6>
-                                <div>  <input name='fee' className='text-[#444] text-1xl font-bold border-none text-right bg-[#fff]' disabled  readOnly type="text" value={120} />  </div>
-                            </div>
-                            <h6 className='text-left mt-4 p-0 text-[#444]'> ℹ️ This is for using platform and getting life time support </h6> 
-                            <hr  className='mt-4'/>
-                            <div className='flex justify-between mt-4'>
-                                <h6 className='text-[#444] text-[18px] font-bold' > Total Price </h6>
-                                <div>  <input name='total' className='text-[#444] text-1xl font-bold border-none text-right bg-[#fff]' disabled  readOnly type="text" 
-                                value={+course?.price + 120 } />  </div>
-                            </div>
-                            <input className='w-full p-3 mt-5 rounded-md text-white font-bold  bg-[#FF4669]' type="submit" />
+                                <div className='flex justify-between'>
+                                    <h6 className='text-[#444] text-1xl font-bold' >Course Price</h6>
+                                    <div> <input name='price' className='text-[#444] text-1xl font-bold border-none text-right bg-[#fff]' disabled readOnly type="text" value={course?.price} /> </div>
+                                </div>
+                                <div className='flex justify-between mt-3'>
+                                    <h6 className='text-[#444] text-1xl font-bold' >Platform Charge</h6>
+                                    <div>  <input name='fee' className='text-[#444] text-1xl font-bold border-none text-right bg-[#fff]' disabled readOnly type="text" value={120} />  </div>
+                                </div>
+                                <h6 className='text-left mt-4 p-0 text-[#444]'> ℹ️ This is for using platform and getting life time support </h6>
+                                <hr className='mt-4' />
+                                <div className='flex justify-between mt-4'>
+                                    <h6 className='text-[#444] text-[18px] font-bold' > Total Price </h6>
+                                    <div>  <input name='total' className='text-[#444] text-1xl font-bold border-none text-right bg-[#fff]' disabled readOnly type="text"
+                                        value={+course?.price + 120} />  </div>
+                                </div>
+                                <input className='w-full p-3 mt-5 rounded-md text-white font-bold  bg-[#FF4669]' type="submit" />
 
                             </form>
 
-                            <button className='w-full p-3 mt-4 rounded-md text-white font-bold  bg-[#0076a3]' > Cancel </button>
-                            </div>
+                            <button onClick={()=> navigate('/allcourses') } className='w-full p-3 mt-4 rounded-md text-white font-bold  bg-[#0076a3]' > Cancel </button>
+                        </div>
                     </div>
                 </div>
             </div>
