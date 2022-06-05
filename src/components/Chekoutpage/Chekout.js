@@ -21,19 +21,15 @@ const Chekout = () => {
     return (
         <div>
             <Nav></Nav>
-            <div>
+            <div className='row container'>
+                <div className='col-lg-8'>
                 <div className='flex flex-col lg:flex-row'>
                     <div className='mt-20'>
                         <div data-aos="zoom-out" data-aos-offset="200"
                             data-aos-delay="10"
                             data-aos-duration="1000"
-                            data-aos-easing="ease-in-out" className='bg-[#fff] hover:shadow-2xl border-1 rounded-lg pb-5'>
-                            <div className='md:mx-20'>
-                                <div className='flex flex-col lg:flex-row justify-between'>
-                                    <h6 className='text-2xl text-[#ababab] mt-2 text-left lg:text-'>Purchased</h6>
-                                    <h6 className='text-2xl font-extrabold mt-2 text-left'>Order Amount: <span className='text-[#1aa3d0] font-extrabold text-2xl'>300</span> </h6>
-                                </div>
-                                <hr className='mb-4 mt-4' />
+                            data-aos-easing="ease-in-out" className='bg-[#fff] hover:shadow-2xl border-1 rounded-lg '>
+                            <div className='p-3'>
 
                                 <div className='flex flex-col justify-start lg:flex-row md:flex-row '>
 
@@ -43,27 +39,28 @@ const Chekout = () => {
 
 
                                     <div className='basis-2/4 box-border shrink-0'>
-                                        <h6 className='text-left text-[#444] mx-10 text-2xl font-bold font-sans'> Elementor Widget Development with Projects </h6>
+                                        <div className='flex flex-col lg:flex-row'>
+                                            <div>
+                                            <h6 className='text-left text-[#444] mx-10 text-[16px] font-bold font-sans'> Elementor Widget Development with Projects </h6>
                                         <h6 className='text-left mx-10 mt-3 font-bold text-[#0076a3] '> By <span> Abduallah al nahian </span>  </h6>
 
                                         <h6 className='text-left mx-10 mt-3 font-bold text-[#ababab] '>
                                             <span> You are starting of the Course! fdfdsfdff  Continue your learning </span>  </h6>
-
-                                        <div className='text-left mt-3'>
-                                            <button className='mx-10 mt-2 text-[#0076a3] rounded-md font-bold'>
-                                                Give review</button>
-
+                                            </div>
+                                            <div>
+                                                <h6 className='text-2xl font-bold text-[#00A99D]'>800</h6>
+                                            </div>
                                         </div>
-                                        <div className='text-left mt-3'>
-                                            <button className='bg-[#ff4669] w-20 h-10 mx-10 mt-3 text-white rounded-md font-bold'>aaa</button>
-                                        </div>
-
                                     </div>
                                 </div>
                             </div>
 
                         </div>
                     </div>
+                </div>
+                </div>
+                <div className='col-lg-4'>
+                    <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, quia?</h6>
                 </div>
             </div>
         </div>
