@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { set } from 'react-hook-form';
+import { useParams } from 'react-router-dom';
 import Nav from '../navbar/Nav';
 
 
@@ -6,12 +8,64 @@ import Nav from '../navbar/Nav';
 
 const Chekout = () => {
 
+    const { id } = useParams()
 
+    const [course, setCourse] = useState({})
+    useEffect(() => {
+        const url = `http://localhost:8000/singelcourse/${id}`
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setCourse(data))
+    }, [id])
 
     return (
         <div>
             <Nav></Nav>
-            <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, nobis eos. Impedit doloremque rem quia aperiam nemo voluptatem aut, vel quod, facilis dolore dignissimos natus commodi soluta exercitationem, animi quae qui laboriosam itaque ab esse dolor. Sint beatae minima alias pariatur quo molestiae, accusantium ea animi nemo, autem dolorem. Sed?</h6>
+            <div>
+                <div className='flex flex-col lg:flex-row'>
+                    <div className='mt-20'>
+                        <div data-aos="zoom-out" data-aos-offset="200"
+                            data-aos-delay="10"
+                            data-aos-duration="1000"
+                            data-aos-easing="ease-in-out" className='bg-[#fff] hover:shadow-2xl border-1 rounded-lg pb-5'>
+                            <div className='md:mx-20'>
+                                <div className='flex flex-col lg:flex-row justify-between'>
+                                    <h6 className='text-2xl text-[#ababab] mt-2 text-left lg:text-'>Purchased</h6>
+                                    <h6 className='text-2xl font-extrabold mt-2 text-left'>Order Amount: <span className='text-[#1aa3d0] font-extrabold text-2xl'>300</span> </h6>
+                                </div>
+                                <hr className='mb-4 mt-4' />
+
+                                <div className='flex flex-col justify-start lg:flex-row md:flex-row '>
+
+                                    <div className='basis-4/4 lg:basis-2/5 md:basis-2/4 shrink-0 '>
+                                        <img className='shrink-0' src="https://instructory-aws-storage.s3.us-west-1.amazonaws.com/course_thumbnails/625e5c49304e3.jpg" alt="" />
+                                    </div>
+
+
+                                    <div className='basis-2/4 box-border shrink-0'>
+                                        <h6 className='text-left text-[#444] mx-10 text-2xl font-bold font-sans'> Elementor Widget Development with Projects </h6>
+                                        <h6 className='text-left mx-10 mt-3 font-bold text-[#0076a3] '> By <span> Abduallah al nahian </span>  </h6>
+
+                                        <h6 className='text-left mx-10 mt-3 font-bold text-[#ababab] '>
+                                            <span> You are starting of the Course! fdfdsfdff  Continue your learning </span>  </h6>
+
+                                        <div className='text-left mt-3'>
+                                            <button className='mx-10 mt-2 text-[#0076a3] rounded-md font-bold'>
+                                                Give review</button>
+
+                                        </div>
+                                        <div className='text-left mt-3'>
+                                            <button className='bg-[#ff4669] w-20 h-10 mx-10 mt-3 text-white rounded-md font-bold'>aaa</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
