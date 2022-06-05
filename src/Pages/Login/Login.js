@@ -115,7 +115,8 @@ const [
         <div>
             <Nav></Nav>
 
-            <section className="forms-section mt-20">
+            { loading || signloading || googleloading ? <p> loading.. </p> :
+                <section className="forms-section mt-20">
                 
                     <div className='rounded-md shadow-3xl bg-[#e6e6e683] p-2'>
                            <button onClick={() => signInWithGoogle()}> 
@@ -256,6 +257,7 @@ const [
                     </div>
                 </div>
             </section>
+            }
 
         </div>
 

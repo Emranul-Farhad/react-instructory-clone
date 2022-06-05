@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Nav from '../navbar/Nav';
 import { useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Firekey/Firekey';
 
 
 
@@ -11,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 const Chekout = () => {
 
     // user handel
+    const  [user] = useAuthState(auth)
 
     // navigate handel
     const navigate = useNavigate()
@@ -32,6 +35,7 @@ const Chekout = () => {
     const totalprice = event => {
         event.preventDefault();
         const courseinfo = {
+            email : user?.email,
             name: course?.name,
             courseName:course?.courseName,
             img: course?.img,
