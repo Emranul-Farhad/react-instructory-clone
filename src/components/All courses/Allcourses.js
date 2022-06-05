@@ -3,13 +3,14 @@ import Nav from '../navbar/Nav';
 import Allcourse from './Allcourse';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Allcourses = () => {
 
 
-    // page count
+    // page count handeling
     const [count, setCount] = useState(0)
     const [page, setPage] = useState(0)
     const [size, setSize] = useState(6)
@@ -34,10 +35,6 @@ const Allcourses = () => {
             .then(res => res.json())
             .then(data => setCoursescard(data))
     }, [page, size])
-
-
-    // page count haneling
-
 
 
 

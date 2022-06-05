@@ -38,7 +38,9 @@ const Nav = () => {
 
         pathname.includes('/giverivew') ?  {background: `url(${nav})`,} : {clasName : ""} &&
 
-        pathname.includes('/allcourses') ?  {background: `url(${nav})`,} : {clasName : ""} 
+        pathname.includes('/allcourses') ?  {background: `url(${nav})`,} : {clasName : ""} &&
+
+        pathname.includes('/chekout') ?  {background: `url(${nav})`,} : {clasName : ""} 
   
 
 

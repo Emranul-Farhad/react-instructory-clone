@@ -1,7 +1,13 @@
 import React from 'react';
 import Nav from '../navbar/Nav';
 
+
+
+
 const Chekout = () => {
+
+
+
     return (
         <div>
             <Nav></Nav>

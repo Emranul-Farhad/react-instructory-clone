@@ -7,9 +7,10 @@ import Nav from '../navbar/Nav';
 
 const Mycourses = () => {
 
-    // cnavigate handel
+    // review navigate handel
      const navigate = useNavigate()
   
+    
 
     return (
         <div className='bg-[#FbFbFb]'>

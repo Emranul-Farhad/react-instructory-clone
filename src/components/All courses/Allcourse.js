@@ -2,17 +2,22 @@ import { Rating } from '@mui/material';
 import React from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Allcourse = ({courses}) => {
-    const {star,courseName,img,name,price} = courses
+
+    const {star,courseName,img,name,price, _id } = courses
+
+//  checkout page navigate handel
+   const navigate = useNavigate()
+
 
     return (
         <div>
            <div>
             {/*  card start from here */}
-
             <div  data-aos="fade-down" data-aos-offset="200"
     data-aos-delay="10"
     data-aos-duration="1000"
@@ -33,7 +38,7 @@ const Allcourse = ({courses}) => {
 
                         <div className='flex flex-row justify-between mt-2 '>
                             <h6 className='font-bold text-[28px] text-[#00A99D]'> ৳{price} </h6>
-                            <button className='btn btn-primary bg-gradient-to-r from-[#00A99D] to-[#0898D7] text-white font-bold rounded-md'>Buy Now</button>
+                            <button onClick={()=> navigate(`/chekout/${_id}`) } className='btn btn-primary bg-gradient-to-r from-[#00A99D] to-[#0898D7] text-white font-bold rounded-md'>Buy Now</button>
                         </div>
                     </div>
                 </div>
