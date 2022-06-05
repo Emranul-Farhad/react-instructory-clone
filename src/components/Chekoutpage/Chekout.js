@@ -18,6 +18,21 @@ const Chekout = () => {
             .then(data => setCourse(data))
     }, [id])
 
+
+
+    //  cart price send in db
+     const totalprice = event => {
+        event.preventDefault();
+        const courseinfo = {
+            img : course?.img,
+            price : event.target.price.value,
+            fee : event.target.fee.value,
+            total : event.target.total.value
+        }
+        console.log(courseinfo);
+     }
+
+
     return (
         <div>
             <Nav></Nav>
@@ -65,21 +80,28 @@ const Chekout = () => {
                 <div className='col-lg-4 mt-20'>
                     <div class="card w-96 bg-base-100 shadow-xl">
                         <div class="card-body">
+
+                            <form onSubmit={totalprice}> 
+
                             <div className='flex justify-between'>
                                 <h6 className='text-[#444] text-1xl font-bold' >Course Price</h6>
-                                <div> <input  className='text-[#444] text-1xl font-bold border-none text-right bg-[#fff]' disabled  readOnly type="text" value={course?.price} /> </div>
+                                <div> <input name='price' className='text-[#444] text-1xl font-bold border-none text-right bg-[#fff]' disabled  readOnly type="text" value={course?.price} /> </div>
                             </div>
                             <div className='flex justify-between mt-3'>
                                 <h6 className='text-[#444] text-1xl font-bold' >Platform Charge</h6>
-                                <div>  <input className='text-[#444] text-1xl font-bold border-none text-right bg-[#fff]' disabled  readOnly type="text" value={120} />  </div>
+                                <div>  <input name='fee' className='text-[#444] text-1xl font-bold border-none text-right bg-[#fff]' disabled  readOnly type="text" value={120} />  </div>
                             </div>
                             <h6 className='text-left mt-4 p-0 text-[#444]'> ℹ️ This is for using platform and getting life time support </h6> 
                             <hr  className='mt-4'/>
                             <div className='flex justify-between mt-4'>
                                 <h6 className='text-[#444] text-[18px] font-bold' > Total Price </h6>
-                                <div>  <input className='text-[#444] text-1xl font-bold border-none text-right bg-[#fff]' disabled  readOnly type="text" value={120} />  </div>
+                                <div>  <input name='total' className='text-[#444] text-1xl font-bold border-none text-right bg-[#fff]' disabled  readOnly type="text" 
+                                value={+course?.price + 120 } />  </div>
                             </div>
                             <input className='w-full p-3 mt-5 rounded-md text-white font-bold  bg-[#FF4669]' type="submit" />
+
+                            </form>
+
                             <button className='w-full p-3 mt-4 rounded-md text-white font-bold  bg-[#0076a3]' > Cancel </button>
                             </div>
                     </div>
