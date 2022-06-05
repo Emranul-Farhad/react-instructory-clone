@@ -40,7 +40,7 @@ const Mycoursemap = () => {
     return res.json()})
    .then(data => setMyourse(data))
 
-   },[user, navigate] )
+   },[user, navigate , loading] )
 
 
    if(loading){
@@ -50,10 +50,14 @@ const Mycoursemap = () => {
     return (
         <div>
             <Nav></Nav>
-            <div>
+
+            <div className=''>
+            <div className='bg-[#fbfbfb]'>
+             <h6 className='pt-5 text-[#0076a3] font-bold text-2xl'>Your total courses </h6>
                 {
                     mycourse.map(course => <Mycourses key={course._id} course={course} ></Mycourses> )
                 }
+            </div>
             </div>
         </div>
     );

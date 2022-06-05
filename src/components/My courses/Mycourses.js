@@ -15,9 +15,9 @@ const Mycourses = ({course}) => {
 
 
     return (
-        <div className='bg-[#FbFbFb] overflow-hidden'>
+        <div className='overflow-hidden'>
             <div className='mx-20'>
-                <h6> Your courses  </h6>
+                <h6>  </h6>
                 <div className='mt-20'>
                     <div className='bg-[#fff] hover:shadow-2xl border-1 rounded-lg pb-5 overflow-hidden'>
                         <div className='md:mx-20 overflow-hidden'>
