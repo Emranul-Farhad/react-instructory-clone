@@ -22,6 +22,7 @@ import Managecourses from './components/Manage all Courses/Managecourses';
 import Mycoursemap from './components/My courses/Mycoursemap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './Firekey/Firekey';
+import Protected from './Proctedpages/Protected';
 
 
 
@@ -36,7 +37,7 @@ function App() {
     {  loading ? <p>loading..</p> :
      <Routes>
        <Route path='/' element={<Hero></Hero>} ></Route>
-       <Route path='/chekout/:id' element={<Chekout></Chekout>} ></Route>
+       <Route path='/chekout/:id' element={ <Protected> <Chekout></Chekout> </Protected> } ></Route>
        <Route path='/allcourses' element={<Allcourses></Allcourses>} ></Route>
        <Route path='/login' element={<Login></Login>} ></Route>
        <Route path='/signin' element={<Signin></Signin>} ></Route>
