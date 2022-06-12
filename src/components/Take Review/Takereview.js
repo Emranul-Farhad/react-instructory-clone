@@ -19,7 +19,7 @@ const Takereview = () => {
     // console.log(name)
 
     // react hook form
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     //    const rating handel
     const [value, setValue] = useState(5);
@@ -47,13 +47,11 @@ const Takereview = () => {
                 icon: 'success',
                 text: 'Thank you for your Review',            
               })
-              data.reset()
+            reset();
         }
-        console.log(data)})
+       })
 
-        console.log(value)
-        console.log(data?.name, data.review);
-        console.log(data)
+       
     }
 
 
