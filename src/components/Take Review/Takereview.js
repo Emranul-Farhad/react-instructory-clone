@@ -1,14 +1,60 @@
 import React, { useState } from 'react';
 import Nav from '../navbar/Nav';
 import { Rating } from '@mui/material';
+import { useForm } from 'react-hook-form';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Firekey/Firekey';
+import Swal from 'sweetalert2';
 
 
 
 
 const Takereview = () => {
 
+    // user handel
+    const [user] = useAuthState(auth)
+    console.log(user?.email)
+
+    const splitname = user?.email.split('@')[0]
+    // console.log(name)
+
+    // react hook form
+    const { register, formState: { errors }, handleSubmit } = useForm();
+
     //    const rating handel
-    const [value, setValue] = useState(2);
+    const [value, setValue] = useState(5);
+
+
+    // handel submit
+    const onSubmit = data => {
+      const reviewinfo ={
+        name:data.name,
+        qoute: data.review,
+        rating : value
+      } 
+
+      fetch('http://localhost:8000/review' , {
+        method : "POST",
+        headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(reviewinfo),
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(data.insertedId){
+            Swal.fire({
+                icon: 'success',
+                text: 'Thank you for your Review',            
+              })
+              data.reset()
+        }
+        console.log(data)})
+
+        console.log(value)
+        console.log(data?.name, data.review);
+        console.log(data)
+    }
 
 
     return (
@@ -20,26 +66,33 @@ const Takereview = () => {
                     <h6 className='text-[#0076a3] font-bold text-1xl mt-3'>Feel free to  Give your Review 😇</h6>
                     <div class="card-body bg-[#ebe2e28e] mt-3">
                         <h6 className=' font-bold  text-[#0076a3] text-left mx-3 mb-2 '> Course Name </h6>
+                        {/* input taking here */}
+                        <form onSubmit={handleSubmit(onSubmit)}>
 
-                        <input type="text" placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2 input-bordered input-primary w-full max-w-xs mb-2"
-                        />
+                            <input required {...register("name")} type="text" value={splitname} readOnly placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2 input-bordered input-primary w-full max-w-xs mb-2"
+                            />
 
-                        <h6 className='text-[#0076a3] font-bold text-left mx-3 mt-3'> Course description </h6>
-                        <textarea className='mt-2 supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2 input-bordered input-primary w-full max-w-xs' name="" id="" cols="30"
-                            rows="10"></textarea>
+                            <h6 className='text-[#0076a3] font-bold text-left mx-3 mt-3'> Course description </h6>
 
-                        <Rating
-                        className='mr-[200px] mt-3'
-                            name="simple-controlled"
-                            value={2}
-                            onChange={(event, newValue) => {
-                                setValue(newValue);
-                            }}
-                        />
+                            <textarea required {...register("review")} className='mt-2 supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2 input-bordered input-primary w-full max-w-xs' cols="30"
+                                rows="10">
+                            </textarea>
+                            {/* */}
 
-                        <div class="card-actions justify-end mt-3 ">
-                            <button class="btn btn-primary">Submit ✔️ </button>
-                        </div>
+                            <Rating
+                                className='mr-[200px] mt-3'
+                                name="simple-controlled"
+                                value={value}
+                                onChange={(event, newValue) => {
+                                    setValue(newValue);
+                                }}
+                            />
+
+                            <div class="card-actions flex justify-end mt-3 ">
+                                {/* <button class="btn btn-primary">Submit </button> */}
+                                <input type="submit" className='font-bold btn bg-[#4EC3BB]' />
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

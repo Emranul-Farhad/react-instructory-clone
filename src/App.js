@@ -34,18 +34,17 @@ function App() {
   const [user,loading] = useAuthState(auth)
   return (
     <div className="App"> 
-    {  loading ? <p>loading..</p> :
+    
      <Routes>
        <Route path='/' element={<Hero></Hero>} ></Route>
        <Route path='/chekout/:id' element={ <Protected> <Chekout></Chekout> </Protected> } ></Route>
        <Route path='/allcourses' element={<Allcourses></Allcourses>} ></Route>
        <Route path='/login' element={<Login></Login>} ></Route>
        <Route path='/signin' element={<Signin></Signin>} ></Route>
-     <Route path='/mycourses' element={<Mycoursemap></Mycoursemap>} ></Route>
-      <Route path='/uploadcourses' element={<Courseupload></Courseupload>} ></Route>
-      <Route path='/giverivew' element={<Takereview></Takereview>} ></Route>
-
-       <Route path='/dashboard' element={<Dashboard></Dashboard>} >
+     <Route path='/mycourses' element={ <Protected> <Mycoursemap></Mycoursemap></Protected> } ></Route>
+      <Route path='/uploadcourses' element={ <Protected><Courseupload></Courseupload></Protected> } ></Route>
+      <Route path='/giverivew' element={ <Protected><Takereview></Takereview></Protected> } ></Route>
+       <Route path='/dashboard' element={ <Protected><Dashboard></Dashboard> </Protected> } >
        <Route index element={<Myorders></Myorders> } ></Route>
         <Route path='users' element={<Users></Users>} ></Route>
         <Route path='admins' element={<Admins></Admins> } ></Route>
@@ -56,7 +55,7 @@ function App() {
 
        </Route>
      </Routes>
-}
+
     </div>
   );
 }

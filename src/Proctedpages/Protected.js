@@ -10,13 +10,18 @@ const Protected = ({children}) => {
 
 const [user , loading] = useAuthState(auth)
 const location = useLocation()
-  if(loading){
-      return <p> loading... </p>
-  }
+ 
+
+
+   if(loading){
+       return <p> loading... </p> 
+   }
+
 
    if(!user){
     return <Navigate to="/login" state={{ from: location }} replace />;
    }
+
 
 
 
