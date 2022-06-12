@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from '../navbar/Nav';
 import { Rating } from '@mui/material';
 import { useForm } from 'react-hook-form';
@@ -12,8 +12,7 @@ import Swal from 'sweetalert2';
 const Takereview = () => {
 
     // user handel
-    const [user] = useAuthState(auth)
-    console.log(user?.email)
+    const [user, loading] = useAuthState(auth)
 
     const splitname = user?.email.split('@')[0]
     // console.log(name)
@@ -25,13 +24,36 @@ const Takereview = () => {
     const [value, setValue] = useState(5);
 
 
-    // handel submit
+    //  user images taken from user profile
+    const [info , setInfo] = useState({})
+    const email = user?.email
+    console.log(email);
+    useEffect(()=> {
+        if(loading){
+            return <p>loading...</p>
+        }
+        const url = `http://localhost:8000/userdata?email=${email}`
+       fetch(url,{
+           method : "GET",
+       }) 
+       .then(res => res.json())
+       .then(data => setInfo(data))
+       console.log(email);
+    },[email , loading]) 
+
+    // const images = info?.img
+    // console.log(img);
+
+    // review handel submit
     const onSubmit = data => {
       const reviewinfo ={
         name:data.name,
         qoute: data.review,
-        rating : value
+        rating : value,
+        image : info?.img
       } 
+      console.log(reviewinfo)
+      console.log(data);
 
       fetch('http://localhost:8000/review' , {
         method : "POST",
@@ -65,9 +87,9 @@ const Takereview = () => {
                     <div class="card-body bg-[#ebe2e28e] mt-3">
                         <h6 className=' font-bold  text-[#0076a3] text-left mx-3 mb-2 '> Course Name </h6>
                         {/* input taking here */}
-                        <form onSubmit={handleSubmit(onSubmit)}>
-
-                            <input required {...register("name")} type="text" value={splitname} readOnly placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2 input-bordered input-primary w-full max-w-xs mb-2"
+                        <form onSubmit={handleSubmit(onSubmit)}>                           
+                                                                                                          
+                            <input {...register("name")} type="text" value={splitname} readOnly placeholder="Type here" className="supportinput h-[50px] bg-[#FBFBFB] border-solid  p-2 input-bordered input-primary w-full max-w-xs mb-2"
                             />
 
                             <h6 className='text-[#0076a3] font-bold text-left mx-3 mt-3'> Course description </h6>

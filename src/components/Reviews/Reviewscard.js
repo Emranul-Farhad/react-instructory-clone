@@ -2,23 +2,23 @@ import React, { useState } from 'react';
 import './Reviewcard.css'
 import { ImQuotesRight } from 'react-icons/im'
 import { Rating } from '@mui/material';
-
+import avatar from '../../images/avatar1.png'
 
 
 const Reviewscard = ({ cardinfo }) => {
 
-    const { rating, qoute, name } = cardinfo
+    const { rating, qoute, name , image } = cardinfo
 
 
     //     seless see more handel
-    const [descriptionCollapse, setDescriptionCollapse] = useState(true);
+    const [QouteCollapse, setQouteCollapse] = useState(true);
 
     const showMore = () => {
-        setDescriptionCollapse(true);
+        setQouteCollapse(true);
     };
 
     const showLess = () => {
-        setDescriptionCollapse(false);
+        setQouteCollapse(false);
     }
 
 
@@ -38,11 +38,11 @@ const Reviewscard = ({ cardinfo }) => {
 
                            <div className='text-left'>
                            <span className='text-left cursor-pointer text-white mt-4 mb-4 leading-6'>
-                               {descriptionCollapse ? qoute.slice(0, 50) : qoute  }
+                               {QouteCollapse ? qoute.slice(0, 50) : qoute  }
                             </span>
                             
                             {
-                                qoute.length > 50 ? descriptionCollapse ? (
+                                qoute.length > 50 ? QouteCollapse ? (
                                     <span onClick={showLess} className='text-left cursor-pointer text-white leading-6' >...</span>
                                 ):
                                 ( 
@@ -55,8 +55,8 @@ const Reviewscard = ({ cardinfo }) => {
                            </div>
               
 
-                            {/* {img ? <img class='user' src={img} alt="pic" /> :
-                                <img src="https://fadzrinmadu.github.io/hosted-assets/design-testimonial-section-using-html-and-css/1.jpg" class="user" alt='a' />} */}
+                            {image ? <img class='user' src={image} alt="pic" /> :
+                                <img src={avatar} class="user" alt='a' />}
                            
 
                             <h6 className='text-left font-bold  mt-5 mb-2 text-[#4EC3BB]'> Name : {name} </h6>
