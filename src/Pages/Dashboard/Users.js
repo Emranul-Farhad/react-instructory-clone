@@ -84,9 +84,7 @@ const Users = () => {
                                     {userd?.role !== "admin" && <td>
 
                                         <button onClick={() => makeadmin(userd?.email)} className='btn btn-primary bg-gradient-to-r from-[#00A99D] to-[#0898D7] text-white font-bold rounded-md'> make admin</button>
-                                    </td>
-
-                                    }
+                                    </td>}
 
                                     {userd?.role !== 'admin' && <td> dfddfdh </td>}
 
