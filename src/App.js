@@ -23,6 +23,8 @@ import Mycoursemap from './components/My courses/Mycoursemap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './Firekey/Firekey';
 import Protected from './Proctedpages/Protected';
+import Notfound from './Animation/Notfound';
+import Loading from './Loading/Loading';
 
 
 
@@ -34,8 +36,8 @@ function App() {
   const [user,loading] = useAuthState(auth)
   return (
     <div className="App"> 
-    
-     <Routes>
+   { loading ? <Loading></Loading> : 
+     <Routes>  
        <Route path='/' element={<Hero></Hero>} ></Route>
        <Route path='/chekout/:id' element={ <Protected> <Chekout></Chekout> </Protected> } ></Route>
        <Route path='/allcourses' element={<Allcourses></Allcourses>} ></Route>
@@ -51,11 +53,11 @@ function App() {
         <Route path='profileedit' element={<Profile></Profile>} ></Route>
         <Route path='profile' element={<Profiledetails></Profiledetails>} ></Route>
         <Route path='managecourses' element={<Managecourses></Managecourses>} ></Route>
-       {/* <Route path='profile' element={<Profileshow></Profileshow>} ></Route> */}
-
        </Route>
-     </Routes>
-
+       <Route path='*' element={<Notfound></Notfound> } ></Route>
+      
+     </Routes>}
+ 
     </div>
   );
 }

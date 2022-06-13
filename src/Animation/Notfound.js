@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react';
 import Lottie from 'lottie-web';
-import Animation from './loading.json'
+import React, { useEffect, useRef } from 'react';
+import Animation from './notfound.json'
 
 
-const Loading = () => {
+
+const Notfound = () => {
 
     const container = useRef(null)
 
@@ -18,14 +19,12 @@ const Loading = () => {
         return () => instance.destroy();
     }, [])
 
-   
-
 
     return (
         <div className='flex justify-center'>
-              <div className='w-[20%]' ref={container} ></div>
+            <div  className='w-[50%]' ref={container} ></div>
         </div>
     );
 };
 
-export default Loading;
+export default Notfound;

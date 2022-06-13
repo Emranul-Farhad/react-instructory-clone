@@ -67,6 +67,7 @@ const Hero = () => {
      <div className='mt-[120px]'>
        <Footer></Footer>
      </div>
+    
     </>
   );
 };

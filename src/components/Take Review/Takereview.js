@@ -41,8 +41,7 @@ const Takereview = () => {
        console.log(email);
     },[email , loading]) 
 
-    // const images = info?.img
-    // console.log(img);
+ 
 
     // review handel submit
     const onSubmit = data => {
