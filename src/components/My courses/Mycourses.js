@@ -1,5 +1,8 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import auth from '../../Firekey/Firekey';
+import Adminprotected from '../../Proctedpages/Adminprotected';
 import Nav from '../navbar/Nav';
 
 
@@ -12,7 +15,9 @@ const Mycourses = ({course}) => {
     // review navigate handel
     const navigate = useNavigate()
 
-
+// user handel for admin 
+  const [user] = useAuthState(auth)
+  const [admin] = Adminprotected(user)
 
     return (
         <div className='overflow-hidden'>
@@ -42,11 +47,11 @@ const Mycourses = ({course}) => {
                                     <h6 className='text-left mx-10 mt-3 font-bold text-[#ababab] '>
                                         <span> You are starting of the Course! fdfdsfdff  Continue your learning </span>  </h6>
 
-                                    <div className='text-left mt-3'>
+                                    {!admin && <div className='text-left mt-3'>
                                         <button onClick={() => navigate('/giverivew')} className='mx-10 mt-2 text-[#0076a3] rounded-md font-bold'>
                                             Give review</button>
+                                    </div>}
 
-                                    </div>
                                     <div className='text-left mt-3'>
                                         <button className='bg-[#ff4669] w-20 h-10 mx-10 mt-3 text-white rounded-md font-bold'>aaa</button>
                                     </div>

@@ -25,6 +25,7 @@ import auth from './Firekey/Firekey';
 import Protected from './Proctedpages/Protected';
 import Notfound from './Animation/Notfound';
 import Loading from './Loading/Loading';
+import Adminprotected from './Proctedpages/Adminprotected';
 
 
 
@@ -34,6 +35,7 @@ import Loading from './Loading/Loading';
 
 function App() {
   const [user,loading] = useAuthState(auth)
+  
   return (
     <div className="App"> 
    { loading ? <Loading></Loading> : 
@@ -46,12 +48,16 @@ function App() {
      <Route path='/mycourses' element={ <Protected> <Mycoursemap></Mycoursemap></Protected> } ></Route>
       <Route path='/uploadcourses' element={ <Protected><Courseupload></Courseupload></Protected> } ></Route>
       <Route path='/giverivew' element={ <Protected><Takereview></Takereview></Protected> } ></Route>
+      <Route path='/profileedit' element={<Profile></Profile>} ></Route>
+      <Route path='/profile' element={<Profiledetails></Profiledetails>} ></Route>
+
+      {/* dashboard */}
        <Route path='/dashboard' element={ <Protected><Dashboard></Dashboard> </Protected> } >
        <Route index element={<Myorders></Myorders> } ></Route>
         <Route path='users' element={<Users></Users>} ></Route>
         <Route path='admins' element={<Admins></Admins> } ></Route>
-        <Route path='profileedit' element={<Profile></Profile>} ></Route>
-        <Route path='profile' element={<Profiledetails></Profiledetails>} ></Route>
+        {/* <Route path='profileedit' element={<Profile></Profile>} ></Route> */}
+        {/* <Route path='profile' element={<Profiledetails></Profiledetails>} ></Route> */}
         <Route path='managecourses' element={<Managecourses></Managecourses>} ></Route>
        </Route>
        <Route path='*' element={<Notfound></Notfound> } ></Route>

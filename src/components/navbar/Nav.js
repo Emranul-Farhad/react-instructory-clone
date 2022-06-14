@@ -87,7 +87,7 @@ const Nav = () => {
                   </a>
 
                   <ul className="dropdown-menu bg-[#08637D]" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item font-bold " href="/">Action</a></li>
+                    <li> <NavLink class="dropdown-item font-bold " to='/profile' >Profile </NavLink> </li>
                     <li><a class="dropdown-item font-bold " href="/">Another action</a></li>
 
                     <li class="nav-item ms-2">

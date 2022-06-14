@@ -15,7 +15,7 @@ const Dashboard = () => {
 
 
   const [user] = useAuthState(auth)
-  const admin = Adminprotected(user)
+  const [admin] = Adminprotected(user)
   console.log(admin)
 
 
