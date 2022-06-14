@@ -1,13 +1,13 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
-import { NavLink, useNavigate , useLocation} from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import auth from '../../Firekey/Firekey';
 import './nav.css'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { BsFillCartCheckFill } from 'react-icons/bs'
 import { BiCloudUpload } from 'react-icons/bi'
 import { BsFillJournalBookmarkFill, BsCollectionPlayFill } from 'react-icons/bs'
-import {RiDashboardFill} from 'react-icons/ri'
+import { RiDashboardFill } from 'react-icons/ri'
 import nav from '../../images/footer_bg.jpg'
 
 
@@ -27,21 +27,21 @@ const Nav = () => {
 
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light" style={  
-        pathname.includes('/login') ?  {background: `url(${nav})`, padding: "5px ,15px 5px" } : {clasName : ""} &&
+      <nav class="navbar navbar-expand-lg navbar-light" style={
+        pathname.includes('/login') ? { background: `url(${nav})`, padding: "5px ,15px 5px" } : { clasName: "" } &&
 
-        pathname.includes('/signin') ?  {background: `url(${nav})`, padding: "5px ,15px 5px" } : {clasName : ""} &&
+          pathname.includes('/signin') ? { background: `url(${nav})`, padding: "5px ,15px 5px" } : { clasName: "" } &&
 
-        pathname.includes('/mycourses') ?  {background: `url(${nav})`,} : {clasName : ""} &&
-  
-        pathname.includes('/uploadcourses') ?  {background: `url(${nav})`,} : {clasName : ""} &&
+            pathname.includes('/mycourses') ? { background: `url(${nav})`, } : { clasName: "" } &&
 
-        pathname.includes('/giverivew') ?  {background: `url(${nav})`,} : {clasName : ""} &&
+              pathname.includes('/uploadcourses') ? { background: `url(${nav})`, } : { clasName: "" } &&
 
-        pathname.includes('/allcourses') ?  {background: `url(${nav})`,} : {clasName : ""} &&
+                pathname.includes('/giverivew') ? { background: `url(${nav})`, } : { clasName: "" } &&
 
-        pathname.includes('/chekout') ?  {background: `url(${nav})`,} : {clasName : ""} 
-  
+                  pathname.includes('/allcourses') ? { background: `url(${nav})`, } : { clasName: "" } &&
+
+                    pathname.includes('/chekout') ? { background: `url(${nav})`, } : { clasName: "" }
+
 
 
       }>
@@ -58,27 +58,31 @@ const Nav = () => {
               <li class="nav-item me-5">
                 <a class="nav-link active text-white ap" href="/">Affiliate Partener</a>
               </li>
-              <div className='d-flex mx-auto ms-auto shadow-2xl rounded-lg px-2 p-1 bg-[#154766]'>
+
+             { !user && <NavLink
+                to='/login' type="button" className="btn btn-danger ">Get Started</NavLink>}
+
+              {user && <div className='d-flex mx-auto ms-auto shadow-2xl rounded-lg px-2 p-1 bg-[#154766]'>
 
 
                 <li title=' MY courses' className='mt-2 mr-2 text-2xl px-2 text-white'> <NavLink to='/mycourses'> <BsCollectionPlayFill></BsCollectionPlayFill>  </NavLink> </li>
 
                 <li title='course Upload' className='mt-1 mr-2 text-3xl px-2 text-white'> <NavLink to='/uploadcourses'> <BiCloudUpload></BiCloudUpload>  </NavLink> </li>
 
-
-                <li title='Blogs' className=' mt-2 mr-3 px-2 text-2xl text-white'>  <NavLink to='/'>
-                  <BsFillJournalBookmarkFill></BsFillJournalBookmarkFill> </NavLink> </li>
+                
+                  <li title='Blogs' className=' mt-2 mr-3 px-2 text-2xl text-white'>  <NavLink to='/'>
+                    <BsFillJournalBookmarkFill></BsFillJournalBookmarkFill> </NavLink> </li>
 
                 <li title='dashboard' className='mt-2 mr-3 text-2xl text-white'>  <NavLink to='/dashboard'> <RiDashboardFill></RiDashboardFill> </NavLink> </li>
 
-              
 
-                <li  className='mt-2 mr-3 text-2xl px-3 text-white'>  <NavLink to='/'> <BsFillCartCheckFill></BsFillCartCheckFill> </NavLink> </li>
+
+                <li className='mt-2 mr-3 text-2xl px-3 text-white'>  <NavLink to='/'> <BsFillCartCheckFill></BsFillCartCheckFill> </NavLink> </li>
 
 
                 <li class="nav-item dropdown">
 
-                  <a  href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img className='w-[50px] h-[50px] rounded-[50%]' src="https://instructory-aws-storage.s3.us-west-1.amazonaws.com/users/2am/profile_105225611.jpg" alt="" />
                   </a>
 
@@ -89,17 +93,18 @@ const Nav = () => {
                     <li class="nav-item ms-2">
                       {user ? <button onClick={logout} type="button" class="btn btn-danger ">Log Out</button> :
                         <NavLink
-                        to='/login' type="button" className="btn btn-danger ">Get Started</NavLink>
+                          to='/login' type="button" className="btn btn-danger ">Get Started</NavLink>
                       }
                     </li>
                   </ul>
                 </li>
-
               </div>
+              }
 
             </ul>
           </div>
         </div>
+
       </nav>
     </div>
   );
