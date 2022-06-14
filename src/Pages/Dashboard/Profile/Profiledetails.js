@@ -8,6 +8,7 @@ import Profile from './Profile';
 import './Profile.css'
 import auth from '../../../Firekey/Firekey';
 import avatar from '../../../images/avatar.jpg'
+import Nav from '../../../components/navbar/Nav';
 
 const Profiledetails = () => {
 
@@ -34,6 +35,10 @@ const Profiledetails = () => {
 
 
     return (
+        <div> 
+            <div>
+                <Nav></Nav>
+            </div>
         <div className='bg-[#FBFBFB] w-[100%]'>
             <h6 className='text-4xl font-bold font-serif pt-2'> Welcome <span className='text-[#0076a3] uppercase'>{info?.username}</span> to your profile  👏</h6>
             <div data-aos="zoom-out" data-aos-offset="200"
@@ -114,11 +119,12 @@ const Profiledetails = () => {
                         <h6 className='text-left mt-2' > {info?.location} </h6>
                     </div>
                     <div className='w-7 h-7 bg-[#1aa] mt-10 '>
-                        <button onClick={() => navigate('/dashboard/profileedit')} className='text-2xl' > <FaPenNib></FaPenNib> </button>
+                        <button onClick={() => navigate('/profileedit')} className='text-2xl' > <FaPenNib></FaPenNib> </button>
                     </div>
                 </div>
             </div>
 
+        </div>
         </div>
     );
 };

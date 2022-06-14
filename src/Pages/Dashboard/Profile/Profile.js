@@ -5,6 +5,7 @@ import { BsTelephoneFill } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg'
 import { FcElectronics } from 'react-icons/fc';
 import { MdEmail } from 'react-icons/md'
+import Nav from '../../../components/navbar/Nav';
 import auth from '../../../Firekey/Firekey';
 
 
@@ -69,8 +70,12 @@ const Profile = () => {
 
 
     return (
+        <div> 
+            <div>
+                <Nav></Nav>
+            </div>
         <div className='bg-[#FBFBFB]'>
-            <h6 className='text-3xl text-[#00A99D] font-extrabold'> Edit your Profile !! </h6>
+            <h6 className='text-3xl text-[#00A99D] font-extrabold pt-3'> Edit your Profile !! </h6>
             <form onSubmit={handleSubmit(onSubmit)}> 
             <div className='flex flex-col lg:flex-row  mx-[200px] mt-20' >
                 {/* info taking form here */}
@@ -145,6 +150,7 @@ const Profile = () => {
                 </div>
             </div>
                 </form>
+        </div>
         </div>
     );
 };
