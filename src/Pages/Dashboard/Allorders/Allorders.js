@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+import Allordersprices from './Allordersprices';
 
 
 
@@ -15,11 +16,41 @@ const Allorders = () => {
   },[] )
 
 
+  const [price , setPrices] = useState([])
+  useEffect(()=> {
+    fetch('http://localhost:8000/orders')
+    .then(res => res.json())
+    .then(data =>{
+        setPrices(data)})
+  },[] )
+
+
+//   const [totalprice , SetTotalprice] = useState(0)
  
+//   useEffect(()=> {
+//     if(price.length > 0){
+//         price.forEach(element => {
+//             SetTotalprice( totalprice + +element.total  )
+//         });
+//     }
+//   },[price] )
+
+
+   const [totalprice , setTotalprice] = useState(0)
+
+   useEffect(()=> {
+    if(price.length > 0){
+        price.forEach(element => {
+            setTotalprice(totalprice + +element.total )
+        })
+    }
+   },[price] )
 
 
     return (
         <div className='bg-[#FbFbFb]'>
+
+       <h6> total price : {totalprice} </h6>
 
             <div>
             <div className='pt-5'>

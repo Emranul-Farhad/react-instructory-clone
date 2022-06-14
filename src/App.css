@@ -40,3 +40,23 @@
 .cc:hover{
   color: 8DC63F;
 }
+
+/* custom scrollbar */
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track{
+  background: white;
+}
+
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(#00A99D , #FF4669);
+  border-radius: 25px;
+}
+
+
+::-webkit-scrollbar-thumb:hover{
+  background:#00FFBB;
+  border-radius: 25px;
+}

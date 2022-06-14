@@ -69,7 +69,7 @@ const Managecourses = () => {
 
     return (
         <div>
-
+        
             <div>
                 <div class="overflow-x-auto mx-[17%] border-1">
                     <table class="table table-zebra w-full">
