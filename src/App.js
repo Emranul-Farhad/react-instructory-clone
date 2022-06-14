@@ -26,6 +26,7 @@ import Protected from './Proctedpages/Protected';
 import Notfound from './Animation/Notfound';
 import Loading from './Loading/Loading';
 import Adminprotected from './Proctedpages/Adminprotected';
+import Allorders from './Pages/Dashboard/Allorders/Allorders';
 
 
 
@@ -57,6 +58,7 @@ function App() {
         <Route path='users' element={<Users></Users>} ></Route>
         <Route path='admins' element={<Admins></Admins> } ></Route>
         <Route path='managecourses' element={<Managecourses></Managecourses>} ></Route>
+        <Route path='allorders' element={<Allorders></Allorders>} ></Route>
        </Route>
        <Route path='*' element={<Notfound></Notfound> } ></Route>
       

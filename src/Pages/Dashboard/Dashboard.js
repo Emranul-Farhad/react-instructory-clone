@@ -16,7 +16,7 @@ const Dashboard = () => {
 
   const [user] = useAuthState(auth)
   const [admin] = Adminprotected(user)
-  console.log(admin)
+
 
 
   return (
@@ -35,15 +35,17 @@ const Dashboard = () => {
           <NavLink to='/dashboard/admins' className='p-1' >Admins</NavLink>
         </div>  }
 
-        { admin && <div className='ms-2 flex flex-row justify-center items-center text-white font-bold uppercase mt-5 bg-[#0076a3]'>
+        <div className='ms-2 flex flex-row justify-center items-center text-white font-bold uppercase mt-5 bg-[#0076a3]'>
           <FcPackage className='text-3xl mr-1'></FcPackage>
-          <NavLink to='/dashboard' >All orders</NavLink>
-        </div>}
+          <NavLink to='/dashboard/allorders' >All orders</NavLink>
+        </div>
 
        {admin && <div className='ms-2 flex flex-row justify-center items-center text-white font-bold uppercase mt-5 bg-[#0076a3]'>
           <FaProductHunt className='text-3xl mr-1'></FaProductHunt>
           <NavLink to='/dashboard/managecourses' >Manage Courses</NavLink>
         </div>}
+
+       
 
       
 

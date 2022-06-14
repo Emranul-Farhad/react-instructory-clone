@@ -51,11 +51,11 @@ const Users = () => {
 
 
     return (
-        <div className='bg-[#FBFBFB]'>
+        <div className='bg-[#FBFBFB] mx-auto'>
             <div>
 
             </div>
-            <div class="overflow-x-auto mx-[12%] border-1 ">
+            <div class="overflow-x-auto  mx-[17%] border-1 ">
                 <table class="table table-zebra w-full">
 
                     <thead>
