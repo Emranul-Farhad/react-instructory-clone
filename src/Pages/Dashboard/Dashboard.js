@@ -45,12 +45,7 @@ const Dashboard = () => {
           <NavLink to='/dashboard/managecourses' >Manage Courses</NavLink>
         </div>}
 
-        <div className='ms-2 flex flex-row justify-center items-center text-white font-bold uppercase mt-5 bg-[#0076a3]'>
-          <CgProfile className='text-3xl mr-1'></CgProfile>
-          <NavLink to='/dashboard/profile' > My PRofile </NavLink>
-        </div>
-
-
+      
 
 
       </nav>

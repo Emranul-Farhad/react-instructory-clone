@@ -1,5 +1,5 @@
 import { signOut } from 'firebase/auth';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import auth from '../../Firekey/Firekey';
 import './nav.css'
@@ -9,13 +9,15 @@ import { BiCloudUpload } from 'react-icons/bi'
 import { BsFillJournalBookmarkFill, BsCollectionPlayFill } from 'react-icons/bs'
 import { RiDashboardFill } from 'react-icons/ri'
 import nav from '../../images/footer_bg.jpg'
-
+import avatar from '../../images/avatar1.png'
 
 const Nav = () => {
 
   const navigate = useNavigate()
+
   // AUTHSATETE FIR logout
   const [user] = useAuthState(auth);
+
   //  logout
   const logout = () => {
     signOut(auth);
@@ -24,6 +26,21 @@ const Nav = () => {
 
   //  cpath name handel
   const { pathname } = useLocation()
+
+  // user photohandel
+  const [info , setInfo] = useState({})
+  const email = user?.email
+  useEffect(()=> {
+      const url = `http://localhost:8000/userdata?email=${email}`
+     fetch(url,{
+         method : "GET",
+     }) 
+     .then(res => res.json())
+     .then(data => setInfo(data))
+  },[email])
+  
+
+
 
   return (
     <div>
@@ -86,8 +103,10 @@ const Nav = () => {
 
                 <li class="nav-item dropdown">
 
-                  <a href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img className='w-[50px] h-[50px] rounded-[50%]' src="https://instructory-aws-storage.s3.us-west-1.amazonaws.com/users/2am/profile_105225611.jpg" alt="" />
+                  <a href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">  
+
+                   { info?.img ? <img className='w-[50px] h-[50px] rounded-[50%]' src={info?.img} alt="" /> : <img className='w-[50px] h-[50px] rounded-[50%]' src={avatar} alt="" /> }
+
                   </a>
 
                   <ul className="dropdown-menu bg-[#08637D]" aria-labelledby="navbarDropdownMenuLink">

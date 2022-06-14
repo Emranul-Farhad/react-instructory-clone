@@ -56,8 +56,6 @@ function App() {
        <Route index element={<Myorders></Myorders> } ></Route>
         <Route path='users' element={<Users></Users>} ></Route>
         <Route path='admins' element={<Admins></Admins> } ></Route>
-        {/* <Route path='profileedit' element={<Profile></Profile>} ></Route> */}
-        {/* <Route path='profile' element={<Profiledetails></Profiledetails>} ></Route> */}
         <Route path='managecourses' element={<Managecourses></Managecourses>} ></Route>
        </Route>
        <Route path='*' element={<Notfound></Notfound> } ></Route>
