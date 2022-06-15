@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../Firekey/Firekey';
 import Loading from '../../../Loading/Loading';
+import Uploadedcards from './Uploadedcards';
 
 
 
@@ -34,12 +35,19 @@ const Uploaded = () => {
             localStorage.removeItem("coursetoken")
         }
        return res.json()})
-    .then(data => console.log(data))
+    .then(data => setUploaded(data))
    },[email, loading] )
+
 
     return (
         <div>
-            <h6>hello world</h6>
+            <h6 className='font-bold pt-4 text-2xl'> Your total uploaded course is
+             <span className='text-[#0076a3] font-extrabold'> {uploaded?.length} </span></h6>
+            <div className='grid grid-cols-2 lg:grid-cols-2 mt-10 mx-[17%] gap-x-5 gap-y-5' >
+                {
+                    uploaded.map(uploaddetails => <Uploadedcards key={uploaddetails._id} details={uploaddetails} ></Uploadedcards> )
+                }
+            </div>
         </div>
     );
 };
