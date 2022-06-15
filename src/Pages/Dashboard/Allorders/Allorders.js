@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../Firekey/Firekey';
+import Loading from '../../../Loading/Loading';
 import Allordersprices from './Allordersprices';
 
 
 
 const Allorders = () => {
 
+    const [loading] = useAuthState(auth)
+    if (loading){
+        <Loading></Loading>
+    }
 
-  const [orders , setOrders] = useState()
+  const [orders , setOrders] = useState([])
   useEffect(()=> {
     fetch('http://localhost:8000/orders')
     .then(res => res.json())
@@ -16,6 +23,7 @@ const Allorders = () => {
   },[] )
 
 
+//   calculating price
   const [price , setPrices] = useState([])
   useEffect(()=> {
     fetch('http://localhost:8000/orders')
@@ -24,25 +32,22 @@ const Allorders = () => {
         setPrices(data)})
   },[] )
 
-
-//   const [totalprice , SetTotalprice] = useState(0)
- 
-//   useEffect(()=> {
-//     if(price.length > 0){
-//         price.forEach(element => {
-//             SetTotalprice( totalprice + +element.total  )
-//         });
-//     }
-//   },[price] )
+//   console.log(orders?.total, price?.total, price);
 
 
    const [totalprice , setTotalprice] = useState(0)
+   console.log(totalprice, "aaa");
+
+    // console.log(totalprice, 'get');
 
    useEffect(()=> {
-    if(price.length > 0){
+    if(orders.length > 0){
+        let total = 0 ;
         price.forEach(element => {
-            setTotalprice(totalprice + +element.total )
+           total = +element.total + total;
         })
+             setTotalprice(total)
+        console.log(total, "total");
     }
    },[price] )
 
@@ -50,7 +55,8 @@ const Allorders = () => {
     return (
         <div className='bg-[#FbFbFb]'>
 
-       <h6> total price : {totalprice} </h6>
+        <h6> total is : {totalprice} </h6>
+        <h6> total is :aaa {} </h6>
 
             <div>
             <div className='pt-5'>
