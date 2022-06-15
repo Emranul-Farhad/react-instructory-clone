@@ -4,6 +4,7 @@ import { RiAdminFill } from 'react-icons/ri'
 import { FiUsers } from "react-icons/fi"
 import { FcPackage } from 'react-icons/fc'
 import { CgProfile } from 'react-icons/cg'
+import {ImUpload} from 'react-icons/im'
 import './Dashboard.css'
 import { FaProductHunt } from 'react-icons/fa'
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -23,6 +24,7 @@ const Dashboard = () => {
     <div>
 
       <nav className='navd p-2' >
+  
 
        {admin && <div className='flex flex-row justify-center items-center text-white font-bold uppercase mt-2 bg-[#0076a3]'>
           {<FiUsers className='text-3xl' ></FiUsers>}
@@ -35,14 +37,20 @@ const Dashboard = () => {
           <NavLink to='/dashboard/admins' className='p-1' >Admins</NavLink>
         </div>  }
 
-        <div className='ms-2 flex flex-row justify-center items-center text-white font-bold uppercase mt-5 bg-[#0076a3]'>
+    { admin &&   <div className='ms-2 flex flex-row justify-center items-center text-white font-bold uppercase mt-5 bg-[#0076a3]'>
           <FcPackage className='text-3xl mr-1'></FcPackage>
           <NavLink to='/dashboard/allorders' >All orders</NavLink>
-        </div>
+        </div>}
 
        {admin && <div className='ms-2 flex flex-row justify-center items-center text-white font-bold uppercase mt-5 bg-[#0076a3]'>
           <FaProductHunt className='text-3xl mr-1'></FaProductHunt>
           <NavLink to='/dashboard/managecourses' >Manage Courses</NavLink>
+        </div>}
+
+
+       {admin && <div className='ms-2 flex flex-row justify-center items-center text-white font-bold uppercase mt-5 bg-[#0076a3]'>
+          <ImUpload className='text-3xl mr-2' ></ImUpload>
+          <NavLink to='/dashboard/uploaded' >My uploaded </NavLink>
         </div>}
 
        

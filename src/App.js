@@ -27,6 +27,7 @@ import Notfound from './Animation/Notfound';
 import Loading from './Loading/Loading';
 import Adminprotected from './Proctedpages/Adminprotected';
 import Allorders from './Pages/Dashboard/Allorders/Allorders';
+import Uploaded from './Pages/Dashboard/Uploaded/Uploaded';
 
 
 
@@ -59,6 +60,7 @@ function App() {
         <Route path='admins' element={<Admins></Admins> } ></Route>
         <Route path='managecourses' element={<Managecourses></Managecourses>} ></Route>
         <Route path='allorders' element={<Allorders></Allorders>} ></Route>
+        <Route path='uploaded' element={<Uploaded></Uploaded>} ></Route>
        </Route>
        <Route path='*' element={<Notfound></Notfound> } ></Route>
       
