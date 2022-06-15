@@ -97,10 +97,6 @@ const Nav = () => {
                 <li title='dashboard' className='mt-2 mr-3 text-2xl text-white'>  <NavLink to='/dashboard'> <RiDashboardFill></RiDashboardFill> </NavLink> </li>
 
 
-
-                <li className='mt-2 mr-3 text-2xl px-3 text-white'>  <NavLink to='/'> <BsFillCartCheckFill></BsFillCartCheckFill> </NavLink> </li>
-
-
                 <li class="nav-item dropdown">
 
                   <a href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">  
@@ -110,8 +106,9 @@ const Nav = () => {
                   </a>
 
                   <ul className="dropdown-menu bg-[#08637D]" aria-labelledby="navbarDropdownMenuLink">
-                    <li> <NavLink class="dropdown-item font-bold " to='/profile' >Profile </NavLink> </li>
-                    <li><a class="dropdown-item font-bold " href="/">Another action</a></li>
+
+                    <li className='mx-3'> <NavLink class="dropdown-item font-bold  " to='/profile' >Profile </NavLink> </li>
+
 
                     <li class="nav-item ms-2">
                       {user ? <button onClick={logout} type="button" class="btn btn-danger ">Log Out</button> :

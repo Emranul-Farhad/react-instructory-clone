@@ -48,15 +48,6 @@ const Dashboard = () => {
         </div>}
 
 
-       {admin && <div className='ms-2 flex flex-row justify-center items-center text-white font-bold uppercase mt-5 bg-[#0076a3]'>
-          <ImUpload className='text-3xl mr-2' ></ImUpload>
-          <NavLink to='/dashboard/uploaded' >My uploaded </NavLink>
-        </div>}
-
-       
-
-      
-
 
       </nav>
 

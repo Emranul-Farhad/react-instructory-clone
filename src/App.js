@@ -55,12 +55,12 @@ function App() {
 
       {/* dashboard */}
        <Route path='/dashboard' element={ <Protected><Dashboard></Dashboard> </Protected> } >
-       <Route index element={<Myorders></Myorders> } ></Route>
+       <Route index element={<Uploaded></Uploaded> } ></Route>
         <Route path='users' element={<Users></Users>} ></Route>
         <Route path='admins' element={<Admins></Admins> } ></Route>
         <Route path='managecourses' element={<Managecourses></Managecourses>} ></Route>
         <Route path='allorders' element={<Allorders></Allorders>} ></Route>
-        <Route path='uploaded' element={<Uploaded></Uploaded>} ></Route>
+        {/* <Route path='uploaded' element={<Uploaded></Uploaded>} ></Route> */}
        </Route>
        <Route path='*' element={<Notfound></Notfound> } ></Route>
       
